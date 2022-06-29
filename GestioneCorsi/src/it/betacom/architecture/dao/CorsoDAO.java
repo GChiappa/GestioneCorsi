@@ -20,7 +20,10 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		rowset = RowSetProvider.newFactory().createCachedRowSet();
 
 	}
-
+	public static CorsoDAO getFactory() throws SQLException{
+		return new CorsoDAO();
+		
+	}
 	@Override
 	public void create(Corso entity, Connection conn) throws SQLException {
 		try {
