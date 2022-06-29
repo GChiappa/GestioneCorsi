@@ -28,12 +28,15 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 
 		rowSet.setCommand(SELECT_CORSISTA);
 		rowSet.execute(conn);
+
 		rowSet.moveToInsertRow();
 
 		rowSet.updateLong(1, entity.getCodCorsista());
 		rowSet.updateString(2, entity.getNome());
 		rowSet.updateString(3, entity.getCognome());
 		rowSet.updateString(4, entity.getPrecedentiFormativi());
+
+		rowSet.insertRow();
 
 		rowSet.moveToCurrentRow();
 		rowSet.acceptChanges();

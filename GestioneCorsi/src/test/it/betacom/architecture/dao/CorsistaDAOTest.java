@@ -26,7 +26,7 @@ class CorsistaDAOTest {
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
 		corsista = new Corsista();
-		corsista.setCodCorsista(1584);
+		corsista.setCodCorsista(159);
 		corsista.setNome("Aldo");
 		corsista.setCognome("Baglio");
 		corsista.setPrecedentiFormativi("SI");
@@ -71,6 +71,7 @@ class CorsistaDAOTest {
 		try {
 			Corsista c = CorsistaDAO.getFactory().findById(corsista.getCodCorsista(), conn);
 			assertNotNull(c);
+			System.out.println("\t" + c.toString());
 		} catch (SQLException e) {
 			fail("Eccezione durante find by id: " + e.getMessage() + "\n\n" + e.getErrorCode());
 		}
@@ -82,6 +83,9 @@ class CorsistaDAOTest {
 		try {
 			Corsista[] c = CorsistaDAO.getFactory().getAll(conn);
 			assertNotNull(c);
+			for (Corsista cors : c) {
+				System.out.println("\t" + cors.toString());
+			}
 		} catch (SQLException e) {
 			fail("Eccezione durante get all: " + e.getMessage() + "\n\n" + e.getErrorCode());
 		}

@@ -12,6 +12,7 @@ import java.util.Properties;
 public class DBAccess {
 
 	private static Connection conn;
+	
 	public static synchronized Connection getConnection() throws ClassNotFoundException, IOException {
 
 		try {

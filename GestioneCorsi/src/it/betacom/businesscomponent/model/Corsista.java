@@ -1,6 +1,7 @@
 package it.betacom.businesscomponent.model;
 
 public class Corsista {
+
 	private long codCorsista;
 	private String nome;
 	private String cognome;
@@ -40,8 +41,8 @@ public class Corsista {
 
 	@Override
 	public String toString() {
-		return "Corsista [CodCorsista=" + codCorsista + ", nome=" + nome + ", cognome=" + cognome
-				+ ", PrecedentiFormativi=" + precedentiFormativi + "]";
+		return "Corsista [codCorsista=" + codCorsista + ", nome=" + nome + ", cognome=" + cognome
+				+ ", precedentiFormativi=" + precedentiFormativi + "]";
 	}
 
 }
