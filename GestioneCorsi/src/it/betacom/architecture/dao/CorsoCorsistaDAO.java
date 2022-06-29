@@ -11,12 +11,13 @@ import it.betacom.businesscomponent.model.CorsoCorsista;
 
 public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants {
 	
-	public static CorsoCorsistaDAO getFactory() throws SQLException {
-		return new CorsoCorsistaDAO();
-	}
+	
 
 	private CachedRowSet rowSet;
 	
+	public static CorsoCorsistaDAO getFactory() throws SQLException {
+		return new CorsoCorsistaDAO();
+	}
 	
 	private CorsoCorsistaDAO() throws SQLException {
 		 try {

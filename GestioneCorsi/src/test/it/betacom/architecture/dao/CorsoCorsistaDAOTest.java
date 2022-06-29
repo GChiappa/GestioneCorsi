@@ -29,18 +29,18 @@ class CorsoCorsistaDAOTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
-		co.setNome("CorsoProva");
-		co.setCodCorso(1);
-		co.setCodDocente("c1");
+		co = new Corso();
+		co.setNome("nomecorso");
+		co.setCodCorso(7);
+		co.setCodDocente("8");
 		co.setInizioCorso(new GregorianCalendar(1990,10,1).getTime());
 		co.setFineCorso(new GregorianCalendar(1990,10,4).getTime());
-		
-		ca.setCodCorsista(3);
+		ca = new Corsista();
+		ca.setCodCorsista(9);
 		ca.setNome("NomeT");
 		ca.setCognome("CognomeT");
 		ca.setPrecedentiFormativi("precedenti Test");
-		
+		cc = new CorsoCorsista();
 		cc.setCodCorsoCorsista("cc1");
 		cc.setCodCorso(1);
 		cc.setCodCorsista(3);
@@ -51,16 +51,17 @@ class CorsoCorsistaDAOTest {
 	void tearDown() throws Exception {
 		
 		try {
-			conn = DBAccess.getConnection();
-			CorsoDAO.getFactory().delete(1,DBAccess.getConnection());
+		 
+			CorsoDAO.getFactory().delete(7,conn);
 			 Statement stmt = conn.createStatement();
-			 stmt.executeQuery("Delete from corsista where cod_corsista = '3'");
+			 stmt.executeQuery("Delete from corsista where cod_corsista = '9'");
 			 conn.commit();
 			 stmt.close();
 			 Statement stmt2 = conn.createStatement();
 			 stmt2.executeUpdate("Delete from corso_corsista where cod_corso_corsista='cc1'");
 			 conn.commit();
 			 
+			 conn.close();
 			DBAccess.closeConnection();
 			}catch (Exception  exc) {
 				exc.printStackTrace();
@@ -70,12 +71,14 @@ class CorsoCorsistaDAOTest {
 
 	@Test
 	void testCreate() throws ClassNotFoundException, IOException {
+		conn = DBAccess.getConnection();
+				
 		 try {
 			 
 			 
-			 CorsoDAO.getFactory().create(co, DBAccess.getConnection() );
-			CorsistaDAO.getFactory().create(ca, DBAccess.getConnection());
-			CorsoCorsistaDAO.getFactory().create(cc,DBAccess.getConnection());
+			 CorsoDAO.getFactory().create(co, conn );
+			CorsistaDAO.getFactory().create(ca, conn);
+			CorsoCorsistaDAO.getFactory().create(cc, conn);
 			 
 			  
 			  
