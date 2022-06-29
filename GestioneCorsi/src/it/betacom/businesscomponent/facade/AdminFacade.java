@@ -19,51 +19,46 @@ public class AdminFacade {
 	private static CorsistaBC corsistaBC;
 	private static DocenteBC docenteBC;
 	private static CommentoBC cBC;
-	
-	
-	
-	
+
 	private AdminFacade() {
-		
+
 	}
-	
-	public  static AdminFacade  getInstance(){
-		if(cF== null)
-			cF= new AdminFacade();
-			return cF;
+
+	public static AdminFacade getInstance() {
+		if (cF == null)
+			cF = new AdminFacade();
+		return cF;
 	}
-	
-	
+
 	public Corsista[] getCorsisti() throws ClassNotFoundException, IOException, SQLException {
-		
+
 		corsistaBC = new CorsistaBC();
 		return corsistaBC.getAll();
-		
+
 	}
-	
-	
+
 	public void createCorsista(Corsista corsista) throws ClassNotFoundException, SQLException, IOException {
-		
+
 		corsistaBC = new CorsistaBC();
 		corsistaBC.createOrUpdate(corsista);
 	}
-	
- 	
-	
-	public Date getInizioUltimoCorso(){
-		//todo
-		
+
+	public Date getInizioUltimoCorso() {
+		// TODO getInizioUltimoCorso
+		return null;
 	}
-	
-	public double getDurataMediaCorsi(){
-		
+
+	public double getDurataMediaCorsi() {
+		// TODO getDurataMediaCorsi
+		return 0;
 	}
-	
-	public int getNumCorsisti(){
-		
+
+	public int getNumCorsisti() {
+		// TODO getNumCorsisti
+		return 0;
 	}
-	
-	public void deleteCorso(long id) throws ClassNotFoundException, SQLException, IOException{
+
+	public void deleteCorso(long id) throws ClassNotFoundException, SQLException, IOException {
 		corsoBC = new CorsoBC();
 		corsoBC.delete(id);
 	}
