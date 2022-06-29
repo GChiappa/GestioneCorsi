@@ -25,8 +25,7 @@ import it.betacom.businesscomponent.model.CorsoCorsista;
 class CorsoCorsistaDAOTest {
 
 		private static CorsoCorsista cc;
-		private static Corsista ca;
-		private static Corso co;
+	 
 		private static Connection conn;
 	
 	@BeforeAll
@@ -37,8 +36,8 @@ class CorsoCorsistaDAOTest {
  
 		cc = new CorsoCorsista();
 		cc.setCodCorsoCorsista(98);
-		cc.setCodCorso(198);
-		cc.setCodCorsista(8);
+		cc.setCodCorso(2);
+		cc.setCodCorsista(2);
 		
 		
 	}
@@ -71,8 +70,7 @@ class CorsoCorsistaDAOTest {
 				
 		 try {
 			 		 
-			 CorsoDAO.getFactory().create(co, conn );
-			CorsistaDAO.getFactory().create(ca, conn);
+ 
 			CorsoCorsistaDAO.getFactory().create(cc, conn);
 			 
 			  

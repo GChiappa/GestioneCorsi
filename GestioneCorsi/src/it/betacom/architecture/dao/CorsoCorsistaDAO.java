@@ -34,7 +34,7 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants 
 			rowSet.setCommand(SELECT_CORSO_CORSISTA);
 			rowSet.execute(conn);
 			rowSet.moveToInsertRow();
-			rowSet.updateString(1,entity.getCodCorsoCorsista());
+			rowSet.updateLong(1,entity.getCodCorsoCorsista());
 			rowSet.updateLong(2,entity.getCodCorso());
 			rowSet.updateLong(3,entity.getCodCorsista());
 			

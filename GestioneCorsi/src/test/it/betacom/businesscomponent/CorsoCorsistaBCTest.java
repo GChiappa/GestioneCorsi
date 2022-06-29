@@ -31,7 +31,7 @@ class CorsoCorsistaBCTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		
-		
+		cc= new CorsoCorsista();
 		ccBC = new CorsoCorsistaBC();
 		cc.setCodCorsoCorsista(20);
 		cc.setCodCorso(1);
@@ -43,7 +43,7 @@ class CorsoCorsistaBCTest {
 	static void tearDownAfterClass() throws Exception {
 		try {
 			ccBC.delete(20);
-			
+			System.out.println("Riga eliminata Correttamente");
 		} catch (SQLException e) {
 			fail("Eccezione durante eliminazione: " + e.getMessage() + "\n\n" + e.getErrorCode());
 		} finally {
@@ -57,7 +57,8 @@ class CorsoCorsistaBCTest {
 	void testCreate() {
 		
 		try {
-			ccBC.create(cc);;
+			ccBC.create(cc);
+			System.out.println("Riga creata correttamente");
 		} catch (ClassNotFoundException | IOException e) {
 			fail("Eccezione durante la creazione: " + e.getMessage());
 		} catch (SQLException e) {
