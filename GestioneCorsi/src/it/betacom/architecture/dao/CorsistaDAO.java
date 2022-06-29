@@ -45,7 +45,7 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 		ps.setString(1, entity.getNome());
 		ps.setString(2, entity.getCognome());
 		ps.setString(3, entity.getPrecedentiFormativi());
-		ps.setLong(3, entity.getCodCorsista());
+		ps.setLong(4, entity.getCodCorsista());
 
 		ps.execute();
 		conn.commit();
@@ -80,6 +80,8 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 			c.setPrecedentiFormativi(rowSet.getString(4));
 		} catch (SQLException e) {
 			throw e;
+		} finally {
+			rowSet.close();
 		}
 		return c;
 	}
@@ -89,7 +91,7 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 		Corsista[] corsisti = null;
 		Corsista c;
 		try {
-			rowSet.setCommand(FBYID_CORSISTA);
+			rowSet.setCommand(SELECT_CORSISTA);
 			rowSet.execute(conn);
 
 			rowSet.last();
@@ -107,6 +109,8 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 
 		} catch (SQLException e) {
 			throw e;
+		} finally {
+			rowSet.close();
 		}
 		return corsisti;
 	}

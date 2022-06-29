@@ -1,17 +1,17 @@
 package it.betacom.BC.model;
 
 public class Corsista {
-	private long CodCorsista;
+	private long codCorsista;
 	private String nome;
 	private String cognome;
-	private String PrecedentiFormativi;
+	private String precedentiFormativi;
 
 	public long getCodCorsista() {
-		return CodCorsista;
+		return codCorsista;
 	}
 
 	public void setCodCorsista(long codCorsista) {
-		CodCorsista = codCorsista;
+		this.codCorsista = codCorsista;
 	}
 
 	public String getNome() {
@@ -31,17 +31,17 @@ public class Corsista {
 	}
 
 	public String getPrecedentiFormativi() {
-		return PrecedentiFormativi;
+		return precedentiFormativi;
 	}
 
 	public void setPrecedentiFormativi(String precedentiFormativi) {
-		PrecedentiFormativi = precedentiFormativi;
+		this.precedentiFormativi = precedentiFormativi;
 	}
 
 	@Override
 	public String toString() {
-		return "Corsista [CodCorsista=" + CodCorsista + ", nome=" + nome + ", cognome=" + cognome
-				+ ", PrecedentiFormativi=" + PrecedentiFormativi + "]";
+		return "Corsista [CodCorsista=" + codCorsista + ", nome=" + nome + ", cognome=" + cognome
+				+ ", PrecedentiFormativi=" + precedentiFormativi + "]";
 	}
 
 }

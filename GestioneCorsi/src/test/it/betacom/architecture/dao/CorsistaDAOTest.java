@@ -26,7 +26,7 @@ class CorsistaDAOTest {
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
 		corsista = new Corsista();
-		corsista.setCodCorsista(15846);
+		corsista.setCodCorsista(1584);
 		corsista.setNome("Aldo");
 		corsista.setCognome("Baglio");
 		corsista.setPrecedentiFormativi("SI");
