@@ -39,6 +39,6 @@ public class DBAccess {
 				conn.close();
 
 		} catch (SQLException sql) {
-		}
+		}	
 	}
 }

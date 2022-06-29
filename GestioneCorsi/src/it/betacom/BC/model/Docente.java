@@ -20,7 +20,7 @@ public void setNome(String nome) {
 public String getCongnome() {
 	return congnome;
 }
-public void setCongnome(String congnome) {
+public void setCognome(String congnome) {
 	this.congnome = congnome;
 }
 public String getCv() {
