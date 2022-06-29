@@ -1,5 +1,6 @@
 package test.it.betacom.architecture.dao;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
@@ -10,28 +11,33 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import it.betacom.architecture.dao.DocenteDAO;
+import it.betacom.architecture.dbaccess.DBAccess;
 import it.betacom.businesscomponent.model.Docente;
 
 class DocenteDAOTEST {
 	private static Connection conn;
+
 	@BeforeEach
 	void setUp() throws Exception {
+		conn = DBAccess.getConnection();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
+		DBAccess.closeConnection();
 	}
 
 	@Test
-	void testFindByID() {
+	void testFindByCod() {
 		try {
-			Docente doc = DocenteDAO.getFactory().findById(6, conn);
+			Docente doc = DocenteDAO.getFactory().findByCod("2208", conn);
+			assertNotNull(doc); // Controlla che non sia nullo
 			System.out.println(doc.toString());
 		} catch (SQLException exc) {
 			exc.printStackTrace();
-			fail("Find By ID fallito: " +exc.getMessage());
+			fail("Find By ID fallito: " + exc.getMessage());
 		}
-		
+
 	}
 
 }

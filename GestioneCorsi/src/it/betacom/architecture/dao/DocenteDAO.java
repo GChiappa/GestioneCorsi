@@ -30,11 +30,16 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 
 	@Override
 	public Docente findById(long id, Connection conn) throws SQLException {
+
+		return null;
+	}
+
+	public Docente findByCod(String cod, Connection conn) throws SQLException {
 		Docente docente = null;
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(FBYID_DOCENTE);
-			ps.setLong(1, id);
+			ps.setString(1, cod);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				docente = new Docente();
