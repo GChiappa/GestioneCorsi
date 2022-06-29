@@ -19,27 +19,21 @@ public class CorsoBC {
 	}
 
 	public void CreateorUpdate(Corso corso) throws SQLException, ClassNotFoundException, IOException {
-		try {
+	
 			if (corso.getCodCorso() > 0)
 				CorsoDAO.getFactory().update(corso, conn);
 			else {
 				corso.setCodCorso(CorsoIdGenerator.getInstance().getNextId());
 				CorsoDAO.getFactory().create(corso, conn);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			e.getMessage();
-		}
+		
 	}
 
 	public Corso[] getCorsi() throws SQLException {
 		Corso[] corsi = null;
-		try {
+		
 			corsi = CorsoDAO.getFactory().getAll(conn);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			e.getMessage();
-		}
+		
 		return corsi;
 	}
 
@@ -50,12 +44,9 @@ public class CorsoBC {
 	}
 
 	public void delete(long id) throws SQLException {
-		try {
+		
 			CorsoDAO.getFactory().delete(id, conn);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			e.getMessage();
-		}
+		
 
 	}
 }
