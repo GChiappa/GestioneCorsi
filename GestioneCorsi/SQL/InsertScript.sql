@@ -19,6 +19,10 @@ insert into corso_corsista values(corso_corsista_seq.nextval,3,2);
 insert into corso_corsista values(corso_corsista_seq.nextval,1,3);
 insert into corso_corsista values(corso_corsista_seq.nextval,2,4);
 
+insert into commento values(commento_seq.nextval,1,1,"Corso di HTML ben Strutturato CC")
+insert into commento values(commento_seq.nextval,1,2,"Corso di HTML Migliorabile GG")
+insert into commento values(commento_seq.nextval,2,3,"Corso di  JAVA OK LB")
+
 insert into docente values('2208', 'Giovanni', 'Galliani', 'CV');
 
 insert into amministratore values ('codeAdmin1','nome1','Cognome1','pass');
