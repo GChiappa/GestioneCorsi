@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import it.betacom.architecture.dao.CorsoCorsistaDAO;
 import it.betacom.architecture.dbaccess.DBAccess;
+import it.betacom.businesscomponent.idgenerator.CorsoCorsistaIdGenerator;
 import it.betacom.businesscomponent.model.CorsoCorsista;
 
 public class CorsoCorsistaBC {
@@ -20,7 +21,7 @@ private Connection conn;
 	public void create (CorsoCorsista cc) throws ClassNotFoundException, IOException, SQLException {
 		try {
 			
-			 
+			 cc.setCodCorsoCorsista(CorsoCorsistaIdGenerator.getInstance().getNextId());
 			CorsoCorsistaDAO.getFactory().create(cc, conn);
 			
 		} catch (SQLException  exc) {
