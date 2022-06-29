@@ -3,7 +3,7 @@ package it.betacom.BC.model;
 public class Corsista {
 	private long CodCorsista;
 	private String nome;
-	private String congnome;
+	private String cognome;
 	private String PrecedentiFormativi;
 
 	public long getCodCorsista() {
@@ -22,12 +22,12 @@ public class Corsista {
 		this.nome = nome;
 	}
 
-	public String getCongnome() {
-		return congnome;
+	public String getCognome() {
+		return cognome;
 	}
 
-	public void setCongnome(String congnome) {
-		this.congnome = congnome;
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
 	}
 
 	public String getPrecedentiFormativi() {
@@ -40,7 +40,7 @@ public class Corsista {
 
 	@Override
 	public String toString() {
-		return "Corsista [CodCorsista=" + CodCorsista + ", nome=" + nome + ", congnome=" + congnome
+		return "Corsista [CodCorsista=" + CodCorsista + ", nome=" + nome + ", cognome=" + cognome
 				+ ", PrecedentiFormativi=" + PrecedentiFormativi + "]";
 	}
 

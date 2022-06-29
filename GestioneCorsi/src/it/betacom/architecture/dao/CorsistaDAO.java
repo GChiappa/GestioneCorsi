@@ -30,7 +30,7 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 
 		rowSet.updateLong(1, entity.getCodCorsista());
 		rowSet.updateString(2, entity.getNome());
-		rowSet.updateString(3, entity.getCongnome());
+		rowSet.updateString(3, entity.getCognome());
 		rowSet.updateString(4, entity.getPrecedentiFormativi());
 
 		rowSet.moveToCurrentRow();
@@ -43,7 +43,7 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 		PreparedStatement ps = conn.prepareStatement(UPDATE_CORSISTA);
 
 		ps.setString(1, entity.getNome());
-		ps.setString(2, entity.getCongnome());
+		ps.setString(2, entity.getCognome());
 		ps.setString(3, entity.getPrecedentiFormativi());
 		ps.setLong(3, entity.getCodCorsista());
 
@@ -76,7 +76,7 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 			c = new Corsista();
 			c.setCodCorsista(rowSet.getLong(1));
 			c.setNome(rowSet.getString(2));
-			c.setCongnome(rowSet.getString(3));
+			c.setCognome(rowSet.getString(3));
 			c.setPrecedentiFormativi(rowSet.getString(4));
 		} catch (SQLException e) {
 			throw e;
@@ -100,7 +100,7 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 				c = new Corsista();
 				c.setCodCorsista(rowSet.getLong(1));
 				c.setNome(rowSet.getString(2));
-				c.setCongnome(rowSet.getString(3));
+				c.setCognome(rowSet.getString(3));
 				c.setPrecedentiFormativi(rowSet.getString(4));
 				corsisti[i] = c;
 			}

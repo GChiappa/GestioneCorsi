@@ -11,7 +11,7 @@ import it.betacom.BC.model.CorsoCorsista;
 
 public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants {
 	
-	public static CorsoCorsistaDAO GetFactory() throws SQLException {
+	public static CorsoCorsistaDAO getFactory() throws SQLException {
 		return new CorsoCorsistaDAO();
 	}
 
