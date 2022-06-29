@@ -11,8 +11,7 @@ create table corsista(
 	nome varchar2(30) not null,
 	cognome varchar2(30) not null,
 	precedenti_formativi char(2) not null,
-	constraint p_codcorsista primary key(cod_corsista),
-	constraint c_precedentiformativi check precedenti_formativi in ('SI', 'NO')
+	constraint p_codcorsista primary key(cod_corsista)
 );
 
 create sequence corsista_seq;
@@ -63,7 +62,8 @@ create table amministratore(
 );
 
 create view report_iscrizioni as
-	select CORSO.COD_CORSO, CORSO. CORSISTA.*
+	select CORSO.COD_CORSO, CORSO.NOME as nome_corso, CORSO.COD_DOCENTE, CORSO.DATA_INIZIO, CORSO.DATA_FINE, CORSO.AULA,
+		CORSISTA.COD_CORSISTA, CORSISTA.NOME as nome_corsista, CORSISTA.COGNOME, CORSISTA.PRECEDENTI_FORMATIVI
 	from CORSO, CORSO_CORSISTA, CORSISTA
 	where CORSO.COD_CORSO = CORSO_CORSISTA.COD_CORSO
 		and CORSISTA.COD_CORSISTA = CORSO_CORSISTA.COD_CORSISTA
