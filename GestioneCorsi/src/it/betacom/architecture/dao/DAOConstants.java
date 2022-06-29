@@ -24,5 +24,4 @@ public interface DAOConstants {
 	String SELECT_REPORT_ISCRIZIONI = "select * from REPORT_ISCRIZIONI";
 
 	String PASSWORD_AMMINISTRATORE = "select password from AMMINISTRATORE where cod_amministratore = ?";
-
 }
