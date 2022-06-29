@@ -1,4 +1,4 @@
-package it.betacom.architecture.dao.test;
+package test.it.betacom.architecture.dao;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
