@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
-import it.betacom.BC.model.Corsista;
+import it.betacom.businesscomponent.model.Corsista;
 
 public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 

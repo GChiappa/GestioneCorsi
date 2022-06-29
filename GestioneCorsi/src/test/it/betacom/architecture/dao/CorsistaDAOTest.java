@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import it.betacom.BC.model.Corsista;
 import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.architecture.dbaccess.DBAccess;
+import it.betacom.businesscomponent.model.Corsista;
 
 @TestMethodOrder(OrderAnnotation.class)
 class CorsistaDAOTest {

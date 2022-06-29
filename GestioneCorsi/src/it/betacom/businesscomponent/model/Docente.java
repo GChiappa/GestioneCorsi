@@ -1,4 +1,4 @@
-package it.betacom.BC.model;
+package it.betacom.businesscomponent.model;
 
 public class Docente {
 private String CodDocente;

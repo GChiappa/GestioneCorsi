@@ -12,13 +12,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import it.betacom.BC.model.Corsista;
-import it.betacom.BC.model.Corso;
-import it.betacom.BC.model.CorsoCorsista;
 import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.architecture.dao.CorsoCorsistaDAO;
 import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dbaccess.DBAccess;
+import it.betacom.businesscomponent.model.Corsista;
+import it.betacom.businesscomponent.model.Corso;
+import it.betacom.businesscomponent.model.CorsoCorsista;
 
 class CorsoCorsistaDAOTest {
 

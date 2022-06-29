@@ -9,8 +9,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import it.betacom.BC.model.Docente;
 import it.betacom.architecture.dao.DocenteDAO;
+import it.betacom.businesscomponent.model.Docente;
 
 class DocenteDAOTEST {
 	private static Connection conn;

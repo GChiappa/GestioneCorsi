@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
-import it.betacom.BC.model.Docente;
+import it.betacom.businesscomponent.model.Docente;
 
 public class DocenteDAO implements GenericDAO<Docente>, DAOConstants {
 
