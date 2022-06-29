@@ -45,7 +45,6 @@ create table commenti(
 );
 
 
-
 --Admin
 create table amministratore(
 	cod_amministratore varchar2(10),
