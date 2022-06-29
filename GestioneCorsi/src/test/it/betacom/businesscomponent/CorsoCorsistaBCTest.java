@@ -33,7 +33,7 @@ class CorsoCorsistaBCTest {
 		
 		
 		ccBC = new CorsoCorsistaBC();
-		cc.setCodCorsoCorsista("20");
+		cc.setCodCorsoCorsista(20);
 		cc.setCodCorso(1);
 		cc.setCodCorsista(1);
 	 

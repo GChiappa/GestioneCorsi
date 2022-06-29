@@ -30,7 +30,7 @@ create table corso(
 create sequence corso_seq;
 
 create table corso_corsista(
-	cod_corso_corsista varchar2(10),
+	cod_corso_corsista int,
 	cod_corso int,
 	cod_corsista int,
 	constraint p_corsocorsista primary key(cod_corso_corsista),

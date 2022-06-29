@@ -20,7 +20,6 @@ insert into corso_corsista values(corso_corsista_seq.nextval,1,3);
 insert into corso_corsista values(corso_corsista_seq.nextval,2,4);
 
 insert into docente values('2208', 'Giovanni', 'Galliani', 'CV');
-commit
 
 insert into amministratore values ('codeAdmin1','nome1','Cognome1','pass');
 commit

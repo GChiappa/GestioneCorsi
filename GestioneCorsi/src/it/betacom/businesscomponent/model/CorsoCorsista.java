@@ -1,13 +1,13 @@
 package it.betacom.businesscomponent.model;
 
 public class CorsoCorsista {
-	private String CodCorsoCorsista;
+	private long CodCorsoCorsista;
 	private long CodCorso;
 	private long CodCorsista;
-	public String getCodCorsoCorsista() {
+	public long getCodCorsoCorsista() {
 		return CodCorsoCorsista;
 	}
-	public void setCodCorsoCorsista(String codCorsoCorsista) {
+	public void setCodCorsoCorsista(long codCorsoCorsista) {
 		CodCorsoCorsista = codCorsoCorsista;
 	}
 	public long getCodCorso() {
