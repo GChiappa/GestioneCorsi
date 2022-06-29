@@ -29,7 +29,9 @@ class CorsoDAOTest {
 		corso.setCodDocente("2");
 		corso.setNome("DATABASE");
 		corso.setInizioCorso(new GregorianCalendar(2022, 7, 10).getTime());
-		corso.setInizioCorso(new GregorianCalendar(2022, 8, 10).getTime());
+		System.out.println(corso.getInizioCorso());
+		corso.setFineCorso(new GregorianCalendar(2022, 8, 10).getTime());
+		System.out.println(corso.getFineCorso());
 		corso.setAula("C5");
 	}
 	
@@ -50,16 +52,19 @@ class CorsoDAOTest {
 	@Order(2)
 	void testupdateGetbyid() {
 		try {
-			corso = new Corso();
+		
 			corso.setCodDocente("3");
 			corso.setNome("Chittara");
 			corso.setInizioCorso(new GregorianCalendar(2022, 8, 16).getTime());
 			corso.setFineCorso(new GregorianCalendar(2022, 9, 16).getTime());
-			corso.setCodCorso(5);
+			corso.setAula("A5");
+	
 			CorsoDAO.getFactory().update(corso, conn);
 			System.out.println("Aggiornamento corso");
-			Corso cor=CorsoDAO.getFactory().findById(5, conn);
+			assertNotNull(corso);
+			Corso cor=CorsoDAO.getFactory().findById(corso.getCodCorso(), conn);
 			System.out.println(cor.toString());
+			assertNotNull(cor);
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -72,6 +77,7 @@ class CorsoDAOTest {
 	void testGetall() {
 		try {
 		Corso[] corsi = CorsoDAO.getFactory().getAll(conn);
+		System.out.println();
 		assertNotNull(corsi);
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -86,7 +92,7 @@ class CorsoDAOTest {
 		try {
 
 			CorsoDAO.getFactory().delete(5, conn);
-			System.out.println("articolo corso");
+			System.out.println("eliminazione corso corso");
 			
 			DBAccess.closeConnection();
 		} catch (SQLException e) {

@@ -92,11 +92,12 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 
 	@Override
 	public Corso[] getAll(Connection conn) throws SQLException {
-		Corso[] corso = null;
+		Corso[] corsi = null;
+		try {
 		Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		ResultSet rs = stmt.executeQuery(SELECT_CORSO);
 		rs.last();
-		corso = new Corso[rs.getRow()];
+		corsi = new Corso[rs.getRow()];
 		rs.beforeFirst();
 		for (int i = 0; rs.next(); i++) {
 			Corso c = new Corso();
@@ -106,10 +107,14 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			c.setInizioCorso(new java.util.Date(rs.getDate(4).getTime()));
 			c.setFineCorso(new java.util.Date(rs.getDate(5).getTime()));
 			c.setAula(rs.getString(6));
-			corso[i] = c;
+			corsi[i] = c;
 		}
 		rs.close();
-		return null;
+		}catch (SQLException e) {
+			e.getMessage();
+			e.printStackTrace();
+		}
+		return corsi;
 	}
 
 }
