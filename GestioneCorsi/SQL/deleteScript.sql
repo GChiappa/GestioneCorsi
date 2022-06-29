@@ -6,6 +6,7 @@ drop table corsista cascade constraints;
 
 drop sequence corsista_seq;
 drop sequence corso_corsista_seq;
+drop sequence corso_seq;
 
 drop table amministraotre cascade constraints;
 
