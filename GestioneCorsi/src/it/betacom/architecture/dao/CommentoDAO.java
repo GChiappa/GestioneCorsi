@@ -46,7 +46,7 @@ public class CommentoDAO implements DAOConstants, GenericDAO<Commento> {
 	@Override
 	public void update(Commento entity, Connection conn) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(UPDATE_COMMENTO);
-
+		//TODO sistemare
 		ps.setLong(1, entity.getCodCorso());
 		ps.setLong(2, entity.getCodCorsista());
 		ps.setString(3, entity.getDescrizione());

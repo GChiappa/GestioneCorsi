@@ -14,7 +14,7 @@ import it.betacom.architecture.dao.DocenteDAO;
 import it.betacom.architecture.dbaccess.DBAccess;
 import it.betacom.businesscomponent.model.Docente;
 
-class DocenteDAOTEST {
+class DocenteDAOTest {
 	private static Connection conn;
 
 	@BeforeEach
