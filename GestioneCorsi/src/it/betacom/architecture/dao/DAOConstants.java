@@ -12,6 +12,8 @@ public interface DAOConstants {
 	String FBYID_CORSISTA = "select * from CORSISTA where cod_corsista = ?";
 	String UPDATE_CORSISTA = "update CORSISTA set nome = ?, cognome = ?, precedenti_formativi = ? where cod_corsista = ?";
 
+	String SELECT_CORSISTA_SEQ = "select CORSISTA_SEQ.nextval from dual";
+	
 	String SELECT_DOCENTE = "select * from DOCENTE";
 	String FBYID_DOCENTE = "select * from DOCENTE where cod_docente = ?";
 
