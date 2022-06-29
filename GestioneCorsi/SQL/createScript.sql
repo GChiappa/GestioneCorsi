@@ -11,7 +11,8 @@ create table corsista(
 	nome varchar2(30) not null,
 	cognome varchar2(30) not null,
 	precedenti_formativi char(2) not null,
-	constraint p_codcorsista primary key(cod_corsista)
+	constraint p_codcorsista primary key(cod_corsista),
+	constraint c_precedentiformativi check precedenti_formativi in ('SI', 'NO')
 );
 
 create table corso(
