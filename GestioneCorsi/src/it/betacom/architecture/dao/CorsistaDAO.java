@@ -2,7 +2,9 @@ package it.betacom.architecture.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -63,27 +65,24 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 
 	@Override
 	public Corsista findById(long id, Connection conn) throws SQLException {
-		Corsista c = null;
+		Corsista corsista = null;
+		PreparedStatement ps;
 
 		try {
-			rowSet.setCommand(FBYID_CORSISTA);
-			rowSet.setLong(1, id);
-			rowSet.execute(conn);
-
-			rowSet.beforeFirst();
-			rowSet.next();
-
-			c = new Corsista();
-			c.setCodCorsista(rowSet.getLong(1));
-			c.setNome(rowSet.getString(2));
-			c.setCognome(rowSet.getString(3));
-			c.setPrecedentiFormativi(rowSet.getString(4));
+			ps = conn.prepareStatement(FBYID_CORSISTA);
+			ps.setLong(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				corsista = new Corsista();
+				corsista.setCodCorsista(rs.getLong(1));
+				corsista.setNome(rs.getString(2));
+				corsista.setCognome(rs.getString(3));
+				corsista.setPrecedentiFormativi(rs.getString(4));
+			}
 		} catch (SQLException e) {
 			throw e;
-		} finally {
-			rowSet.close();
 		}
-		return c;
+		return corsista;
 	}
 
 	@Override
@@ -91,26 +90,26 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 		Corsista[] corsisti = null;
 		Corsista c;
 		try {
-			rowSet.setCommand(SELECT_CORSISTA);
-			rowSet.execute(conn);
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = stmt.executeQuery(SELECT_CORSISTA);
 
-			rowSet.last();
-			corsisti = new Corsista[rowSet.getRow()];
-
-			rowSet.beforeFirst();
-			for (int i = 0; rowSet.next(); i++) {
-				c = new Corsista();
-				c.setCodCorsista(rowSet.getLong(1));
-				c.setNome(rowSet.getString(2));
-				c.setCognome(rowSet.getString(3));
-				c.setPrecedentiFormativi(rowSet.getString(4));
-				corsisti[i] = c;
+			rs.beforeFirst();
+			if (rs.next()) {
+				rs.last();
+				corsisti = new Corsista[rs.getRow()];
+				rs.beforeFirst();
+				for (int i = 0; rs.next(); i++) {
+					c = new Corsista();
+					c.setCodCorsista(rs.getLong(1));
+					c.setNome(rs.getString(2));
+					c.setCognome(rs.getString(3));
+					c.setPrecedentiFormativi(rs.getString(4));
+					corsisti[i] = c;
+				}
 			}
 
 		} catch (SQLException e) {
 			throw e;
-		} finally {
-			rowSet.close();
 		}
 		return corsisti;
 	}
