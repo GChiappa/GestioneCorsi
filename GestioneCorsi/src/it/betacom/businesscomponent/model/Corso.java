@@ -8,6 +8,14 @@ private String CodDocente;
 private String nome;
 private Date InizioCorso;
 private Date FineCorso;
+private String aula;
+
+public String getAula() {
+	return aula;
+}
+public void setAula(String aula) {
+	this.aula = aula;
+}
 public long getCodCorso() {
 	return CodCorso;
 }
@@ -41,7 +49,7 @@ public void setFineCorso(Date fineCorso) {
 @Override
 public String toString() {
 	return "Corso [CodCorso=" + CodCorso + ", CodDocente=" + CodDocente + ", nome=" + nome + ", InizioCorso="
-			+ InizioCorso + ", FineCorso=" + FineCorso + "]";
+			+ InizioCorso + ", FineCorso=" + FineCorso + ", aula=" + aula + "]";
 }
 
 

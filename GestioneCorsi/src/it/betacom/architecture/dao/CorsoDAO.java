@@ -35,6 +35,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			rowset.updateString(3, entity.getNome());
 			rowset.updateDate(4, new java.sql.Date(entity.getInizioCorso().getTime()));
 			rowset.updateDate(5, new java.sql.Date(entity.getFineCorso().getTime()));
+			rowset.updateString(6, entity.getAula());
 
 			rowset.insertRow();
 			rowset.moveToCurrentRow();
@@ -53,7 +54,8 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		ps.setString(2, entity.getNome());
 		ps.setDate(3, new java.sql.Date(entity.getInizioCorso().getTime()));
 		ps.setDate(4, new java.sql.Date(entity.getFineCorso().getTime()));
-		ps.setLong(5, entity.getCodCorso());
+		ps.setString(5, entity.getAula());
+		ps.setLong(6, entity.getCodCorso());
 		ps.execute();
 		conn.commit();
 	}
@@ -82,6 +84,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			corso.setNome(rs.getString(3));
 			corso.setInizioCorso(rs.getDate(4));
 			corso.setFineCorso(rs.getDate(5));
+			corso.setAula(rs.getString(6));
 
 		}
 		return corso;
@@ -102,6 +105,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			c.setNome(rs.getString(3));
 			c.setInizioCorso(new java.util.Date(rs.getDate(4).getTime()));
 			c.setFineCorso(new java.util.Date(rs.getDate(5).getTime()));
+			c.setAula(rs.getString(6));
 			corso[i] = c;
 		}
 		rs.close();
