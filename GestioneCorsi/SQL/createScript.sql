@@ -11,8 +11,11 @@ create table corsista(
 	nome varchar2(30) not null,
 	cognome varchar2(30) not null,
 	precedenti_formativi char(2) not null,
-	constraint p_codcorsista primary key(cod_corsista)
+	constraint p_codcorsista primary key(cod_corsista),
+	constraint c_precedentiformativi check precedenti_formativi in ('SI', 'NO')
 );
+
+create sequence corsista_seq;
 
 create table corso(
 	cod_corso int,
@@ -25,6 +28,8 @@ create table corso(
 	constraint f_docentecorso foreign key(cod_docente) references docente(cod_docente)
 );
 
+create sequence corso_seq;
+
 create table corso_corsista(
 	cod_corso_corsista varchar2(10),
 	cod_corso int,
@@ -34,7 +39,10 @@ create table corso_corsista(
 	constraint f_codcorsistacc foreign key(cod_corsista) references corsista(cod_corsista)
 );
 
-create table commenti(
+create sequence corso_corsista_seq;
+
+
+create table commento(
 	id_commento int,
 	cod_corso int,
 	cod_corsista int,
@@ -53,3 +61,10 @@ create table amministratore(
 	password varchar2(1000),
 	constraint p_codamministratore primary key(cod_amministratore)
 );
+
+create view report_iscrizioni as
+	select CORSO.COD_CORSO, CORSO. CORSISTA.*
+	from CORSO, CORSO_CORSISTA, CORSISTA
+	where CORSO.COD_CORSO = CORSO_CORSISTA.COD_CORSO
+		and CORSISTA.COD_CORSISTA = CORSO_CORSISTA.COD_CORSISTA
+	;
