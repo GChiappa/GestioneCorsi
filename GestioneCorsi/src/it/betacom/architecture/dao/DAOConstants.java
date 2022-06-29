@@ -7,6 +7,8 @@ public interface DAOConstants {
 	String FBYID_CORSO = "select * from CORSO where cod_corso = ?";
 	String UPDATE_CORSO = "update CORSO set cod_docente = ?, nome = ?, data_inizio = ?, data_fine = ?, aula = ? where cod_corso = ?";
 
+	String SELECT_CORSO_SEQ="select CORSO_SEQ.nextval from dual";
+	
 	String SELECT_CORSISTA = "select * from CORSISTA";
 	String DELETE_CORSISTA = "delete from CORSISTA where cod_corsista = ?";
 	String FBYID_CORSISTA = "select * from CORSISTA where cod_corsista = ?";
