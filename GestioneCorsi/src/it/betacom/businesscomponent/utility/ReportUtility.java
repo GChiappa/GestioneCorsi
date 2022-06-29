@@ -22,7 +22,7 @@ public class ReportUtility implements DAOConstants {
 	}
 
 	public Corso getCorsoPiuFreq() throws SQLException, ClassNotFoundException, IOException {
-		// TODO stmt che ritorna il corso piu frequentato
+		// TODO testing
 		Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		ResultSet rs = stmt.executeQuery(SELECT_ID_CORSO_PIU_FREQUENTATO);
 		Corso corso = null;
