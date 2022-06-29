@@ -15,6 +15,8 @@ drop sequence corsista_seq;
 
 drop sequence corso_corsista_seq;
 
+drop sequence commento_seq;
+
 
 drop table amministratore cascade constraints;
 

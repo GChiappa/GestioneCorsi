@@ -22,14 +22,15 @@ public interface DAOConstants {
 	String SELECT_CORSO_CORSISTA = "select * from CORSO_CORSISTA";
 	String DELETE_CORSO_CORSISTA = "delete from CORSO_CORSISTA where cod_corso_corsista = ?";
 
+	String SELECT_CORSO_CORSISTA_SEQ = "select CORSO_CORSISTA_SEQ.nextval from dual";
+	
 	String SELECT_COMMENTO = "select * from COMMENTO";
-
 	String SELECT_COMMENTO_CORSO = "select * from COMMENTO where cod_corso = ?";
-
 	String UPDATE_COMMENTO = "update COMMENTO set CodCorso = ?, CodCorsista = ?, Descrizione = ? WHERE idCommento=?";
-
 	String DELETE_COMMENTO = "delete from COMMENTO where IdCommento = ?";
 
+	String SELECT_COMMENTO_SEQ = "select COMMENTO_SEQ.nextval from dual";
+	
 	String SELECT_REPORT_ISCRIZIONI = "select * from REPORT_ISCRIZIONI";
 
 	String PASSWORD_AMMINISTRATORE = "select password from AMMINISTRATORE where cod_amministratore = ?";

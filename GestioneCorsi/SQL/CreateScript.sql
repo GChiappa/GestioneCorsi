@@ -51,6 +51,7 @@ create table commento(
 	constraint f_codcorsistac foreign key(cod_corsista) references corsista(cod_corsista)
 );
 
+create sequence commento_seq;
 
 --Admin
 create table amministratore(
