@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <jsp:include page="nav.jsp"/>
 <%@include file="CDN.html" %>
 <meta charset="ISO-8859-1">
 <title>Home Page</title>	
