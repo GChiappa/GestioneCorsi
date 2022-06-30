@@ -108,6 +108,24 @@ public class ReportUtility implements DAOConstants {
 			return (double) singolo / tot * 100;
 	}
 
-	// TODO implementare findCorsiDoc
+	public Vector<Corso> findCorsiDocente(String cod) throws SQLException {
+		Vector<Corso> corsi = new Vector<Corso>();
+		PreparedStatement ps = conn.prepareStatement(SELECT_CORSI_DOCENTE);
+		ps.setString(1, cod);
+		
+		ResultSet rs = ps.executeQuery();
 
+		while(rs.next()) {
+			Corso c = new Corso();
+			c.setCodCorso(rs.getLong(1));
+			c.setCodDocente(rs.getString(2));
+			c.setNome(rs.getString(3));
+			c.setInizioCorso(new java.util.Date(rs.getDate(4).getTime()));
+			c.setFineCorso(new java.util.Date(rs.getDate(5).getTime()));
+			c.setAula(rs.getString(6));
+			corsi.add(c);
+		}
+
+		return corsi;
+	}
 }

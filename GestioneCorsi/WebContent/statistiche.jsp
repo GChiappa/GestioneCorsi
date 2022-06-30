@@ -1,4 +1,5 @@
 
+<%@page import="java.util.Vector"%>
 <%@page import="it.betacom.businesscomponent.model.Docente"%>
 <%@page import="it.betacom.businesscomponent.CommentoBC"%>
 <%@page import="it.betacom.businesscomponent.model.Commento"%>
@@ -190,6 +191,7 @@ ReportUtility report = new ReportUtility();
 
 			<%
 			Docente d = report.getDocenteConPiuCorsi();
+			Vector<Corso> corsiDoc = report.findCorsiDocente(d.getCodDocente());
 			%>
 
 			<div class="alert alert-info" role="alert">
@@ -213,7 +215,39 @@ ReportUtility report = new ReportUtility();
 					</div>
 					<div id="collapseThree" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingTwo">
-						<div class="panel-body"></div>
+						<div class="panel-body">
+
+							<table class="table table-hover" style="text-align: center;">
+
+								<thead>
+									<tr>
+										<td>Codice</td>
+										<td>Nome</td>
+										<td>Aula</td>
+										<td>Inizio</td>
+										<td>Fine</td>
+									</tr>
+								</thead>
+
+								<tbody>
+									<%
+									for (Corso corsoD : corsiDoc) {
+									%>
+									<tr>
+										<td><%=corsoD.getCodCorso()%></td>
+										<td><%=corsoD.getCodDocente()%></td>
+										<td><%=corsoD.getAula()%></td>
+										<td><%=corsoD.getInizioCorso()%></td>
+										<td><%=corsoD.getFineCorso()%></td>
+									</tr>
+									<%
+									}
+									%>
+								</tbody>
+
+							</table>
+
+						</div>
 					</div>
 				</div>
 			</div>
