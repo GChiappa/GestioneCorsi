@@ -60,7 +60,11 @@ footer section {
 
 p.copyright {
 	clear: both;
-	margin-left: 30px;
+	margin-left: 30px;		
 	margin-bottom: 30px;
 }
 
+
+.text-center {
+  text-align: center;
+}
