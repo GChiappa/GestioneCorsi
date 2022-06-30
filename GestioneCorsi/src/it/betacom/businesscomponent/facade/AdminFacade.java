@@ -9,6 +9,7 @@ import it.betacom.businesscomponent.CorsistaBC;
 import it.betacom.businesscomponent.CorsoBC;
 import it.betacom.businesscomponent.CorsoCorsistaBC;
 import it.betacom.businesscomponent.DocenteBC;
+import it.betacom.businesscomponent.model.Commento;
 import it.betacom.businesscomponent.model.Corsista;
 
 public class AdminFacade {
@@ -19,6 +20,8 @@ public class AdminFacade {
 	private static CorsistaBC corsistaBC;
 	private static DocenteBC docenteBC;
 	private static CommentoBC cBC;
+	private static CommentoBC comBC;
+	
 
 	private AdminFacade() {
 
@@ -65,4 +68,13 @@ public class AdminFacade {
 		corsoBC = new CorsoBC();
 		corsoBC.delete(id);
 	}
+	
+	public Commento[] getCommenti() throws ClassNotFoundException, SQLException, IOException {
+		comBC = new CommentoBC();
+		return comBC.getAll();
+	}
+
+	//TODO implementare findCorsoById
+	//TODO implementare findCorsistaById
+	
 }

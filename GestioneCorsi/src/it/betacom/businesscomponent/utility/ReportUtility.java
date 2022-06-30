@@ -90,4 +90,24 @@ public class ReportUtility implements DAOConstants {
 		return 0;
 	}
 
+	public double getPercentualeCorso(long cod) throws SQLException {
+		Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		ResultSet rs = stmt.executeQuery(SELECT_ID_CORSO_PIU_FREQUENTATO);
+		int singolo = 0;
+		int tot = 0;
+		rs.beforeFirst();
+		while (rs.next()) {
+			if (rs.getLong(1) == cod) {
+				singolo = rs.getInt(2);
+			}
+			tot += rs.getInt(2);
+		}
+		if (tot == 0)
+			return 0;
+		else
+			return (double) singolo / tot * 100;
+	}
+
+	// TODO implementare findCorsiDoc
+
 }
