@@ -30,10 +30,14 @@ body {
   color: #000000;
 }
 
+.sfondo {
+	background-image: url('img/c.jpg');
+}
+
 footer {
 	position: absolute;
 	bottom: 0;
-	height: 650px;
+	height: 350px;
 	width: 100%;
 	background-color: #111;
 	color: white;

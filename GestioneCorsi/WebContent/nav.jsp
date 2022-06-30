@@ -7,9 +7,9 @@
 				<span class="icon-bar"></span> 
 				<spanclass="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home.jsp">Amministra Corsi</a>
+			<a class="navbar-brand" href="paginaprincipale.jsp">Management Alfacom</a>
 			 <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="#">Homepage</a></li>
         <li><a href="chisiamo.jsp">Chi siamo</a></li>
         <li><a href="faq.jsp">Faq</a></li>
       </ul>
@@ -17,8 +17,8 @@
 		<div class="collapse navbar-collapse" id="menuApp">
 
 			<%
-    String nome =(String) session.getAttribute("nome");
-    if( nome == null	)
+    String username =(String) session.getAttribute("username");
+    if(username == null	)
     {
     %>
 			<ul class="nav navbar-nav navbar-right">
@@ -45,7 +45,7 @@
 	 	</li>
 	 	<li>
 	 	<a href="#">
-	 	<span class="glyphicon glyphicon-user"></span><%= nome %>
+	 	<span class="glyphicon glyphicon-user"></span><%= username %>
 	 	
 	 	</a>
 	 	</li>
