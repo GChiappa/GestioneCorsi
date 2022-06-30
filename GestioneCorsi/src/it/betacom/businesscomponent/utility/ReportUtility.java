@@ -75,7 +75,7 @@ public class ReportUtility implements DAOConstants {
 		PreparedStatement ps = conn.prepareStatement(COUNT_COMMENTI_CORSO);
 		ps.setLong(1, id);
 		ResultSet rs = ps.executeQuery();
-		if(rs.next())
+		if (rs.next())
 			count = rs.getInt(1);
 		return count;
 	}
@@ -83,6 +83,11 @@ public class ReportUtility implements DAOConstants {
 	public Vector<String[]> getReportCorsoCorsista() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public double getDurataMediaCorsi() {
+		// TODO avg durata corsi (togliere i giorni feriali)
+		return 0;
 	}
 
 }
