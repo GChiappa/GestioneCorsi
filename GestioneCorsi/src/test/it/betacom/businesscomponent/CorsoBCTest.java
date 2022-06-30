@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
@@ -110,6 +112,23 @@ public static void tearDownAfterClass() throws Exception {
 				System.out.println("\t" + c.toString());
 			}
 		} catch (SQLException e) {
+			fail("Eccezione durante getAll: " + e.getMessage());
+		}
+	}
+	
+	@Test
+	@Order(5)
+	void testUltimoCorso() {
+		try {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			java.util.Date data = new java.util.Date(cbc.getUltimoCorso().getTime());
+			
+			 
+			System.out.println("Data inizio Ultimo Corso:");
+			 
+				System.out.println(simpleDateFormat.format(data) );
+			}
+		catch (SQLException e) {
 			fail("Eccezione durante getAll: " + e.getMessage());
 		}
 	}

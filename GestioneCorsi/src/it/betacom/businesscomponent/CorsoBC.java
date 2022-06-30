@@ -3,6 +3,7 @@ package it.betacom.businesscomponent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 
 import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dbaccess.DBAccess;
@@ -48,5 +49,9 @@ public class CorsoBC {
 			CorsoDAO.getFactory().delete(id, conn);
 		
 
+	}
+
+	public Date getUltimoCorso() throws SQLException {
+		 return CorsoDAO.getFactory().getUltimoCorso(conn);
 	}
 }

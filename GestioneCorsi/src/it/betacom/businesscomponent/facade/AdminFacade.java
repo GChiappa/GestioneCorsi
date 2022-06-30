@@ -44,8 +44,10 @@ public class AdminFacade {
 	}
 
 	public Date getInizioUltimoCorso() {
-		// TODO getInizioUltimoCorso
-		return null;
+		 corsoBC = new CorsoBC();
+		 return corsoBC.getUltimoCorso();
+		 
+		 
 	}
 
 	public double getDurataMediaCorsi() {
