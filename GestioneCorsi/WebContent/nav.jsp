@@ -40,7 +40,7 @@
 	 	<li>
 	 		<a href="Report.jsp">
 	 		<span class="glyphicon glyphicon-shopping-cart"></span>
-	 		<span class="badge"> Report </span>
+	 		<span class="badge"> Report</span>
 	 		</a>
 	 	</li>
 	 	<li>
