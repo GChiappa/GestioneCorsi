@@ -26,6 +26,7 @@ public class ReportUtility implements DAOConstants {
 		Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		ResultSet rs = stmt.executeQuery(SELECT_ID_CORSO_PIU_FREQUENTATO);
 		Corso corso = null;
+		rs.beforeFirst();
 		if(rs.next()) {
 			CorsoBC cBC = new CorsoBC();
 			corso = cBC.getById(rs.getLong(1));

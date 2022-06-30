@@ -36,6 +36,5 @@ public interface DAOConstants {
 	String PASSWORD_AMMINISTRATORE = "select password from AMMINISTRATORE where cod_amministratore = ?";
 
 	String SELECT_ID_CORSO_PIU_FREQUENTATO = 
-			"select cod_corso from corso_corsista group by cod_corso having count(*) >= all"
-			+"select count(*) from corso_corsista group by cod_corso";
+			"select cod_corso from CORSO_CORSISTA group by cod_corso order by count(*)";
 }
