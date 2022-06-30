@@ -97,4 +97,16 @@ class CorsistaBCTest {
 		}
 	}
 
+	@Test
+	@Order(5)
+	void testGetNumCorsisti() {
+		try {
+			int num = cBC.getNumeroCorsisti();
+			assertNotNull(num);
+			 System.out.println("Numero corsisti : "+num);
+		} catch (SQLException e) {
+			fail("Eccezione durante get all: " + e.getMessage() + "\n\n" + e.getErrorCode());
+		}
+	}
+	
 }

@@ -43,7 +43,7 @@ public class AdminFacade {
 		corsistaBC.createOrUpdate(corsista);
 	}
 
-	public Date getInizioUltimoCorso() {
+	public Date getInizioUltimoCorso() throws ClassNotFoundException, SQLException, IOException {
 		 corsoBC = new CorsoBC();
 		 return corsoBC.getUltimoCorso();
 		 
@@ -55,9 +55,10 @@ public class AdminFacade {
 		return 0;
 	}
 
-	public int getNumCorsisti() {
-		// TODO getNumCorsisti
-		return 0;
+	public int getNumCorsisti() throws ClassNotFoundException, IOException, SQLException {
+		corsistaBC = new CorsistaBC();
+		return corsistaBC.getNumeroCorsisti();
+		 
 	}
 
 	public void deleteCorso(long id) throws ClassNotFoundException, SQLException, IOException {

@@ -117,4 +117,18 @@ public class CorsistaDAO implements DAOConstants, GenericDAO<Corsista> {
 		return corsisti;
 	}
 
+	public int getNumCorsisti(Connection conn) throws SQLException {
+		
+	int num;
+		try {
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = stmt.executeQuery(SELECT_NUM_CORSISTI);
+			rs.last();
+			num=rs.getInt(1);
+			return num;
+		} catch (SQLException e) {
+		throw e;
+	}
+
+}
 }

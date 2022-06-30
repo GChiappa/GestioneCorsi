@@ -38,4 +38,9 @@ public class CorsistaBC {
 		return CorsistaDAO.getFactory().getAll(conn);
 	}
 
+	public int getNumeroCorsisti() throws SQLException {
+		 
+		return CorsistaDAO.getFactory().getNumCorsisti(conn);
+	}
+
 }
