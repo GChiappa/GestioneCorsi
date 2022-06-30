@@ -54,7 +54,7 @@
 
 	</div>
 
-	<div class="jumbotron" style="margin-top: 60px; text-align: center; color:white;">
+	<div class="jumbotron" style="margin-top: 60px; text-align: center; ">
 	
 			<h2>Perchè la sicurezza nella gestione dei corsi...</h2>
 			<p>
