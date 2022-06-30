@@ -15,10 +15,10 @@ insert into corsista values(corsista_seq.nextval,'Riccardo','Verde','SI');
 
 insert into corso_corsista values(corso_corsista_seq.nextval,1,1);
 insert into corso_corsista values(corso_corsista_seq.nextval,1,2);
-insert into corso_corsista values(corso_corsista_seq.nextval,2,1);
-insert into corso_corsista values(corso_corsista_seq.nextval,3,2);
 insert into corso_corsista values(corso_corsista_seq.nextval,1,3);
 insert into corso_corsista values(corso_corsista_seq.nextval,2,4);
+insert into corso_corsista values(corso_corsista_seq.nextval,2,1);
+insert into corso_corsista values(corso_corsista_seq.nextval,3,2);
 
 insert into commento values(commento_seq.nextval,1,1,'Corso di HTML ben Strutturato CC');
 insert into commento values(commento_seq.nextval,1,2,'Corso di HTML Migliorabile GG');
