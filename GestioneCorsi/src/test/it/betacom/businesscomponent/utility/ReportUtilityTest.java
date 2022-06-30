@@ -1,6 +1,7 @@
 package test.it.betacom.businesscomponent.utility;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
@@ -33,7 +34,8 @@ class ReportUtilityTest {
 
 	@Test
 	@Order(1)
-	void test() {
+	void testCPF() {
+		System.out.println("\ngetCorsoPiuFreq");
 
 		Corso c;
 		try {
@@ -41,11 +43,53 @@ class ReportUtilityTest {
 
 			assertNotNull(c);
 
-			System.out.println(c.toString());
+			System.out.println("\t" + c.toString());
 
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();
 			fail("Errore nella ricerca");
+		}
+
+	}
+
+	@Test
+	@Order(3)
+	void testGCD() {
+		System.out.println("\ngetCorsiDisponibili");
+
+		Corso[] corsi;
+		try {
+			corsi = rep.getCorsiDisponibili();
+
+			assertNotNull(corsi);
+
+			for (Corso c : corsi)
+				System.out.println("\t" + c.toString());
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			fail("\tErrore nella ricerca");
+		}
+
+	}
+
+	@Test
+	@Order(4)
+	void testCCC() {
+		System.out.println("\ncountCommentiCorso");
+
+		int numCommenti = -1;
+		int failing = -1;
+		try {
+			numCommenti = rep.countCommentiCorso(1);
+
+			assertNotEquals(numCommenti, failing);
+
+				System.out.println("\tNumero commenti:" + numCommenti);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			fail("\tErrore nella ricerca");
 		}
 
 	}

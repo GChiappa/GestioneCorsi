@@ -35,6 +35,16 @@ public interface DAOConstants {
 
 	String PASSWORD_AMMINISTRATORE = "select password from AMMINISTRATORE where cod_amministratore = ?";
 
+	// ReportUtility
 	String SELECT_ID_CORSO_PIU_FREQUENTATO = 
-			"select cod_corso from CORSO_CORSISTA group by cod_corso order by count(*)";
+			"select cod_corso from CORSO_CORSISTA group by cod_corso order by count(*) asc";
+	
+	String SELECT_DOCENTE_PIU_CORSI = 
+			"select cod_docente from CORSO group by cod_docente order by count(*) asc";
+	
+	String SELECT_CORSI_DISPONIBILI = 
+			"select * from CORSO where cod_corso not in (select cod_corso from CORSO_CORSISTA group by cod_corso)";
+	
+	String COUNT_COMMENTI_CORSO = 
+			"select count(*) from commento where cod_corso = ?";
 }
