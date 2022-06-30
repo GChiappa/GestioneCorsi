@@ -50,4 +50,6 @@ public interface DAOConstants {
 	
 	String COUNT_COMMENTI_CORSO = 
 			"select count(*) from commento where cod_corso = ?";
+	
+	String SELECT_CORSI_DOCENTE = "select * from CORSO where cod_docente = ?";
 }
