@@ -168,8 +168,14 @@ ReportUtility report = new ReportUtility();
 									for (int i = 0; i < commenti.length; i++) {
 									%>
 									<tr>
-										<td><%=commenti[i].getCodCorso()%></td>
-										<td><%=commenti[i].getCodCorsista()%></td>
+										<%
+										Corso corso = AdminFacade.getInstance().findCorsoById(commenti[i].getCodCorso());
+										%>
+										<td><%=corso.getNome()%></td>
+										<%
+										Corsista corsista = AdminFacade.getInstance().findCorsistaById(commenti[i].getCodCorsista());
+										%>
+										<td><%=corsista.getNome()%>&nbsp;<%=corsista.getCognome()%></td>
 										<td colspan="4"><%=commenti[i].getDescrizione()%></td>
 									</tr>
 									<%
@@ -235,7 +241,10 @@ ReportUtility report = new ReportUtility();
 									%>
 									<tr>
 										<td><%=corsoD.getCodCorso()%></td>
-										<td><%=corsoD.getCodDocente()%></td>
+										<%
+										Corso corso = AdminFacade.getInstance().findCorsoById(corsoD.getCodCorso());
+										%>
+										<td><%=corso.getNome()%></td>
 										<td><%=corsoD.getAula()%></td>
 										<td><%=corsoD.getInizioCorso()%></td>
 										<td><%=corsoD.getFineCorso()%></td>

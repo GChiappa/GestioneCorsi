@@ -11,6 +11,7 @@ import it.betacom.businesscomponent.CorsoCorsistaBC;
 import it.betacom.businesscomponent.DocenteBC;
 import it.betacom.businesscomponent.model.Commento;
 import it.betacom.businesscomponent.model.Corsista;
+import it.betacom.businesscomponent.model.Corso;
 
 public class AdminFacade {
 
@@ -21,7 +22,6 @@ public class AdminFacade {
 	private static DocenteBC docenteBC;
 	private static CommentoBC cBC;
 	private static CommentoBC comBC;
-	
 
 	private AdminFacade() {
 
@@ -47,10 +47,9 @@ public class AdminFacade {
 	}
 
 	public Date getInizioUltimoCorso() throws ClassNotFoundException, SQLException, IOException {
-		 corsoBC = new CorsoBC();
-		 return corsoBC.getUltimoCorso();
-		 
-		 
+		corsoBC = new CorsoBC();
+		return corsoBC.getUltimoCorso();
+
 	}
 
 	public double getDurataMediaCorsi() {
@@ -61,20 +60,27 @@ public class AdminFacade {
 	public int getNumCorsisti() throws ClassNotFoundException, IOException, SQLException {
 		corsistaBC = new CorsistaBC();
 		return corsistaBC.getNumeroCorsisti();
-		 
+
 	}
 
 	public void deleteCorso(long id) throws ClassNotFoundException, SQLException, IOException {
 		corsoBC = new CorsoBC();
 		corsoBC.delete(id);
 	}
-	
+
 	public Commento[] getCommenti() throws ClassNotFoundException, SQLException, IOException {
 		comBC = new CommentoBC();
 		return comBC.getAll();
 	}
 
-	//TODO implementare findCorsoById
-	//TODO implementare findCorsistaById
-	
+	public Corso findCorsoById(long id) throws ClassNotFoundException, SQLException, IOException {
+		corsoBC = new CorsoBC();
+		return corsoBC.getById(id);
+	}
+
+	public Corsista findCorsistaById(long id) throws ClassNotFoundException, SQLException, IOException {
+		corsistaBC = new CorsistaBC();
+		return corsistaBC.findById(id);
+	}
+
 }
