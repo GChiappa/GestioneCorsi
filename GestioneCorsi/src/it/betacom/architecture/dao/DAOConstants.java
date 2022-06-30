@@ -13,7 +13,8 @@ public interface DAOConstants {
 	String DELETE_CORSISTA = "delete from CORSISTA where cod_corsista = ?";
 	String FBYID_CORSISTA = "select * from CORSISTA where cod_corsista = ?";
 	String UPDATE_CORSISTA = "update CORSISTA set nome = ?, cognome = ?, precedenti_formativi = ? where cod_corsista = ?";
-
+	String SELECT_NUM_CORSISTI ="select count(cod_corsista) as NCorsisti from corsista";
+	
 	String SELECT_CORSISTA_SEQ = "select CORSISTA_SEQ.nextval from dual";
 
 	String SELECT_DOCENTE = "select * from DOCENTE";
@@ -21,6 +22,8 @@ public interface DAOConstants {
 
 	String SELECT_CORSO_CORSISTA = "select * from CORSO_CORSISTA";
 	String DELETE_CORSO_CORSISTA = "delete from CORSO_CORSISTA where cod_corso_corsista = ?";
+	String INIZIO_ULTIMO_CORSO = "select data_inizio from corso where cod_corso=(select max(cod_corso) from corso)";
+	String DURATA_MEDIA_CORSI ="SELECT AVG( data_inizio - data_fine) as Media FROM corso;";
 
 	String SELECT_CORSO_CORSISTA_SEQ = "select CORSO_CORSISTA_SEQ.nextval from dual";
 	
