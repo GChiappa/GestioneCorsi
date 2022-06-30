@@ -17,8 +17,8 @@
 		<div class="collapse navbar-collapse" id="menuApp">
 
 			<%
-    String username =(String) session.getAttribute("username");
-    if(username == null	)
+    String nome =(String) session.getAttribute("nome");
+    if( nome == null	)
     {
     %>
 			<ul class="nav navbar-nav navbar-right">
@@ -45,7 +45,7 @@
 	 	</li>
 	 	<li>
 	 	<a href="#">
-	 	<span class="glyphicon glyphicon-user"></span><%= username %>
+	 	<span class="glyphicon glyphicon-user"></span><%= nome %>
 	 	
 	 	</a>
 	 	</li>

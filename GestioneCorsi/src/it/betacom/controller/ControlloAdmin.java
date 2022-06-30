@@ -24,7 +24,7 @@ public class ControlloAdmin extends HttpServlet {
 		String password= AlgoritmoMD5.convertiMD5(request.getParameter("password") );
 		
 		HttpSession session = request.getSession();
-		String userpass= null;
+	 
 		String adminpass = null;
 		if(codAdmin != null && password!=null) {
 			try {
@@ -36,7 +36,13 @@ public class ControlloAdmin extends HttpServlet {
 				   if (adminpass!= null)   {
 					 if(adminpass.equals(password)) {
 						 session.setAttribute("admin", codAdmin);
+						 session.setAttribute("nome", lu.getadminname(codAdmin));
+						
+						 
 						 response.sendRedirect("paginaprincipale.jsp");
+						 
+						 
+						 
 					 }else {
 						 response.sendRedirect("accessonegato.jsp");
 					 }				 

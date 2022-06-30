@@ -26,4 +26,15 @@ public class loginUtility implements DAOConstants {
 			return null;
 		
 	}
+	
+	public String getadminname(String codAdmin) throws SQLException {
+		
+		PreparedStatement ps = conn.prepareStatement(NOME_AMMINISTRATORE);
+		ps.setString(1, codAdmin);
+		ResultSet rs=ps.executeQuery();
+		if(rs.next())
+				return rs.getString(1);
+		return null;
+	
+}
 }
