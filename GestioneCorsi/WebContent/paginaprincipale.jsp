@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
+<div class="nav"><%@include file="nav.jsp" %></div>
 <div class="container">
 <h1>Alfacom</h1>
 </div>
