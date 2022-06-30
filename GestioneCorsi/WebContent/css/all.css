@@ -4,8 +4,8 @@ html {
 }
 
 body {
-	margin-bottom: 320px;
 	background-color: #F9F9F9;
+	padding-bottom: 670px;
 }
 
 ::-webkit-scrollbar {
@@ -16,12 +16,26 @@ body {
 	background-color: #111;
 }
 
+#riguardonoi {
+  position: relative;
+  bottom: -20px;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 650px;
+  background-color: #FFFFFF;
+ 
+}
+
+.footertext {
+  color: #000000;
+}
+
 footer {
 	position: absolute;
 	bottom: 0;
-	height: 300px;
+	height: 650px;
 	width: 100%;
-	background-color: #008080;
+	background-color: #111;
 	color: white;
 }
 
@@ -49,3 +63,4 @@ p.copyright {
 	margin-left: 30px;
 	margin-bottom: 30px;
 }
+
