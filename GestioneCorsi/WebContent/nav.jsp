@@ -8,6 +8,11 @@
 				<spanclass="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="home.jsp">Amministra Corsi</a>
+			 <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="chisiamo.jsp">Chi siamo</a></li>
+        <li><a href="faq.jsp">Faq</a></li>
+      </ul>
 		</div>
 		<div class="collapse navbar-collapse" id="menuApp">
 
@@ -17,11 +22,7 @@
     {
     %>
 			<ul class="nav navbar-nav navbar-right">
-				<li>
-				<a href="registra.jsp"> 		
-				<span class="glyphicon glyphicon-user">Sign-up</span>
-				</a>
-				</li>
+				 
 				<li>
 				<a href="login.jsp"> 
 			<span class="glyphicon glyphicon-log-in">Login</span>
@@ -31,8 +32,8 @@
 	 <% } else { %>
 	 
 	 	<ul class="nav navbar-nav">
-	 	<li> <a href="acquisti.jsp">Scelta articoli</a></li>
-	 	<li> <a href="carrello.jsp">Riepilogo carrello</a></li>
+	 	<li> <a href="gestionecorsi.jsp">Gestione Corsi</a></li>
+	 	<li> <a href="statistiche.jsp">Statistiche</a></li>
 	 	</ul>
 	 	
 	 	<ul class="nav navbar-nav navbar-right">
