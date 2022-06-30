@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import it.betacom.businesscomponent.model.Corso;
+import it.betacom.businesscomponent.model.Docente;
 import it.betacom.businesscomponent.utility.ReportUtility;
 
 @TestMethodOrder(OrderAnnotation.class)
@@ -44,6 +45,26 @@ class ReportUtilityTest {
 			assertNotNull(c);
 
 			System.out.println("\t" + c.toString());
+
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			e.printStackTrace();
+			fail("Errore nella ricerca");
+		}
+
+	}
+	
+	@Test
+	@Order(2)
+	void testGDCPC() {
+		System.out.println("\ngetDocenteConPiuCorsi");
+
+		Docente d;
+		try {
+			d = rep.getDocenteConPiuCorsi();
+
+			assertNotNull(d);
+
+			System.out.println("\t" + d.toString());
 
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();

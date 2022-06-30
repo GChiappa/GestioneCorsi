@@ -30,7 +30,7 @@ class DocenteDAOTest {
 	@Test
 	void testFindByCod() {
 		try {
-			Docente doc = DocenteDAO.getFactory().findByCod("2208", conn);
+			Docente doc = DocenteDAO.getFactory().findByCod("1", conn);
 			assertNotNull(doc); // Controlla che non sia nullo
 			System.out.println(doc.toString());
 		} catch (SQLException exc) {
