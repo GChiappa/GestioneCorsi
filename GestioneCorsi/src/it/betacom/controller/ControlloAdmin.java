@@ -23,6 +23,11 @@ public class ControlloAdmin extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String adminpass = null;
+		
+		int tentativi = (Integer) session.getAttribute("tentativi");
+		if (tentativi >= 5)
+			response.sendRedirect("troppitentativi.jsp");
+			
 		if (codAdmin != null && password != null) {
 			try {
 
@@ -38,12 +43,23 @@ public class ControlloAdmin extends HttpServlet {
 						response.sendRedirect("paginaPrincipale.jsp");
 
 					} else {
-						int tentativi = 1;
-						if(session.getAttribute("tentativi") == null)
+						 
+						if(session.getAttribute("tentativi") == null) {
+							tentativi =1;
 							session.setAttribute("tentativi", tentativi);
+						}
+							
 						else {
-							tentativi = (int) session.getAttribute("tentativi");
-							session.setAttribute("tentativi", tentativi);
+							tentativi = (Integer) session.getAttribute("tentativi") + 1 ;
+							if (tentativi >= 5) {
+								response.sendRedirect("troppitentativi.jsp");
+							}else {
+								session.setAttribute("tentativi", tentativi);
+							}
+								
+							
+							
+							
 						}
 						response.sendRedirect("accessoNegato.jsp");
 					}
