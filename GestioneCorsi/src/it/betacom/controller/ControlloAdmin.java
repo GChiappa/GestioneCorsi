@@ -27,13 +27,13 @@ public class ControlloAdmin extends HttpServlet {
 			try {
 
 				LoginUtility lu = new LoginUtility();
-				adminpass = lu.getadminpass(codAdmin);
+				adminpass = lu.getAdminPass(codAdmin);
 
 				if (adminpass != null) {
 					if (adminpass.equals(password)) {
 
 						session.setAttribute("admin", codAdmin);
-						session.setAttribute("nome", lu.getadminname(codAdmin));
+						session.setAttribute("nome", lu.getAdminNom(codAdmin));
 						session.removeAttribute("tentativi");
 						response.sendRedirect("paginaPrincipale.jsp");
 
@@ -42,8 +42,7 @@ public class ControlloAdmin extends HttpServlet {
 						if(session.getAttribute("tentativi") == null)
 							session.setAttribute("tentativi", tentativi);
 						else {
-							String t = (String) session.getAttribute("tentativi");
-							tentativi = Integer.parseInt(t) + 1;
+							tentativi = (int) session.getAttribute("tentativi");
 							session.setAttribute("tentativi", tentativi);
 						}
 						response.sendRedirect("accessoNegato.jsp");

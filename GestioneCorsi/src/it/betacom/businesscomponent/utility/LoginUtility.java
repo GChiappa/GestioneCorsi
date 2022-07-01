@@ -16,25 +16,29 @@ public class LoginUtility implements DAOConstants {
 		conn = DBAccess.getConnection();
 	}
 
-	public String getadminpass(String username) throws SQLException {
+	public String getAdminPass(String codAdmin) throws SQLException {
 
 		PreparedStatement ps = conn.prepareStatement(PASSWORD_AMMINISTRATORE);
-		ps.setString(1, username);
+		ps.setString(1, codAdmin);
 		ResultSet rs = ps.executeQuery();
+
 		if (rs.next())
 			return rs.getString(1);
-		return null;
+		else
+			return null;
 
 	}
 
-	public String getadminname(String codAdmin) throws SQLException {
+	public String getAdminNom(String codAdmin) throws SQLException {
 
 		PreparedStatement ps = conn.prepareStatement(NOMINATIVO_AMMINISTRATORE);
 		ps.setString(1, codAdmin);
 		ResultSet rs = ps.executeQuery();
+
 		if (rs.next())
 			return rs.getString(1) + " " + rs.getString(1);
-		return null;
+		else
+			return null;
 
 	}
 }

@@ -5,7 +5,7 @@
 				data-target="#menuApp">
 				<span class="icon-bar"></span> 
 				<span class="icon-bar"></span> 
-				<spanclass="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="paginaprincipale.jsp">Management Alfacom</a>
 			 <ul class="nav navbar-nav">
@@ -17,7 +17,7 @@
 		<div class="collapse navbar-collapse" id="menuApp">
 
 			<%
-    String username =(String) session.getAttribute("username");
+    String username =(String) session.getAttribute("admin");
     if(username == null	)
     {
     %>

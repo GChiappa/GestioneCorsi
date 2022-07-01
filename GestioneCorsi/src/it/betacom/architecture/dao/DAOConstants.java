@@ -42,7 +42,7 @@ public interface DAOConstants {
 	// ReportUtility
 	String SELECT_ID_CORSO_PIU_FREQUENTATO = "select cod_corso, count(*) as num from CORSO_CORSISTA group by cod_corso order by num desc";
 
-	String SELECT_DOCENTE_PIU_CORSI = "select cod_docente from CORSO group by cod_docente order by count(*) asc";
+	String SELECT_DOCENTE_PIU_CORSI = "select cod_docente from CORSO group by cod_docente order by count(*) desc";
 
 	String SELECT_CORSI_DISPONIBILI = "select * from CORSO where cod_corso not in (select cod_corso from CORSO_CORSISTA group by cod_corso)";
 
