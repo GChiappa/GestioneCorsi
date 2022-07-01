@@ -29,8 +29,8 @@ public interface DAOConstants {
 
 	String SELECT_COMMENTO = "select * from COMMENTO";
 	String SELECT_COMMENTO_CORSO = "select * from COMMENTO where cod_corso = ?";
-	String UPDATE_COMMENTO = "update COMMENTO set CodCorso = ?, CodCorsista = ?, Descrizione = ? WHERE idCommento=?";
-	String DELETE_COMMENTO = "delete from COMMENTO where IdCommento = ?";
+	String UPDATE_COMMENTO = "update COMMENTO set Cod_Corso = ?, Cod_Corsista = ?, Descrizione = ? WHERE id_commento=?";
+	String DELETE_COMMENTO = "delete from COMMENTO where id_commento = ?";
 
 	String SELECT_COMMENTO_SEQ = "select COMMENTO_SEQ.nextval from dual";
 
@@ -49,4 +49,6 @@ public interface DAOConstants {
 	String COUNT_COMMENTI_CORSO = "select count(*) from commento where cod_corso = ?";
 
 	String SELECT_CORSI_DOCENTE = "select * from CORSO where cod_docente = ?";
+	
+	String SELECT_CORSI_CORSISTA = "select * from CORSO where cod_corso in (select cod_corso from CORSO_CORSISTA where cod_corsista = ?)";
 }

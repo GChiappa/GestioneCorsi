@@ -27,7 +27,7 @@ public class CommentoBCTest {
 	static void setUpBeforeClass() throws Exception {
 		cBC = new CommentoBC();
 		commento = new Commento();
-		commento.setIdCommento(159);
+		commento.setIdCommento(186);
 		commento.setCodCorso(22078);
 		commento.setCodCorsista(2221);
 		commento.setDescrizione("Ottimo!");
