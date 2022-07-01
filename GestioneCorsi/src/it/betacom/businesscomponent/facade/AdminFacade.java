@@ -2,7 +2,12 @@ package it.betacom.businesscomponent.facade;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.DayOfWeek;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import it.betacom.businesscomponent.CommentoBC;
 import it.betacom.businesscomponent.CorsistaBC;
@@ -52,9 +57,26 @@ public class AdminFacade {
 
 	}
 
-	public double getDurataMediaCorsi() {
-		// TODO getDurataMediaCorsi
-		return 0;
+	public double getDurataMediaCorsi() throws ClassNotFoundException, SQLException, IOException {
+
+		double totale = 0;
+		Corso[] corsi = getCorsi();
+		Calendar inizio = Calendar.getInstance();
+		Calendar fine = Calendar.getInstance();
+
+		for (Corso corso : corsi) {
+			inizio.setTime(corso.getInizioCorso());
+			fine.setTime(corso.getFineCorso());
+			do {
+				if (inizio.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY
+						&& inizio.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY)
+					totale++;
+				inizio.add(Calendar.DAY_OF_MONTH, 1);
+			} while (inizio.get(Calendar.DAY_OF_YEAR) < fine.get(Calendar.DAY_OF_YEAR)
+					|| inizio.get(Calendar.YEAR) < fine.get(Calendar.YEAR));
+		}
+
+		return (double) totale / corsi.length;
 	}
 
 	public int getNumCorsisti() throws ClassNotFoundException, IOException, SQLException {

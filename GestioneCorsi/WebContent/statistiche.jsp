@@ -130,7 +130,11 @@ ReportUtility report = new ReportUtility();
 		</div>
 
 		<div class="row">
-			<h3>Durata media dei corsi: X giorni lavorativi</h3>
+			<h3>
+				Durata media dei corsi:
+				<%=String.format("%.2f", AdminFacade.getInstance().getDurataMediaCorsi())%>
+				giorni lavorativi
+			</h3>
 		</div>
 
 		<div class="row">
@@ -332,9 +336,9 @@ ReportUtility report = new ReportUtility();
 		</div>
 
 	</div>
-	
+
 	<footer><%@include file="footer.html"%></footer>
-	
+
 </body>
 </html>
 
