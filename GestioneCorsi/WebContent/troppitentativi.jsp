@@ -1,11 +1,5 @@
-
-<%
-if (session.getAttribute("tentativi") != null && (int) session.getAttribute("tentativi") >= 5) {
-	response.sendRedirect("troppitentativi.jsp");
-}
-%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,19 +12,15 @@ if (session.getAttribute("tentativi") != null && (int) session.getAttribute("ten
 	<jsp:include page="nav.jsp"></jsp:include>
 	<div class="container">
 		<div class="page-header">
-			<h3>Non puoi accedere a questa pagina</h3>
+			<h3>Non puoi più accedere a al sito</h3>
 		</div>
 		<div class="panel panel-danger">
 			<div class="panel-heading">
-				<h3>Risorsa non disponibile</h3>
+				<h3>Sito non disponibile</h3>
 			</div>
 			<div class="panel-body">
-				<p>Per accedere alla pagina:</p>
-				<p>Effettuare il login</p>
-				<p>
-					<a href="index.jsp">Login</a>
-				</p>
-
+				<p>Troppi tentativi di accesso.</p>
+				<p>Riprova più tardi.</p>
 			</div>
 		</div>
 	</div>

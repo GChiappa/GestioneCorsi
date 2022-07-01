@@ -1,13 +1,17 @@
 
 <%
+if (session.getAttribute("tentativi") != null && (int) session.getAttribute("tentativi") >= 5) {
+	response.sendRedirect("troppitentativi.jsp");
+}
 if (session.getAttribute("admin") != null) {
 %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
 <%@page import="it.betacom.businesscomponent.model.Docente"%>
 <%@page import="it.betacom.businesscomponent.utility.ReportUtility"%>
 <%@page import="it.betacom.businesscomponent.facade.AdminFacade"%>
 <%@page import="it.betacom.businesscomponent.model.Corso"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +33,8 @@ if (session.getAttribute("admin") != null) {
 		Corso[] corsi = AdminFacade.getInstance().getCorsi();
 		%>
 
-		<table class="table table-hover" style="text-align: center; margin-top: 50px;">
+		<table class="table table-hover"
+			style="text-align: center; margin-top: 50px;">
 
 			<thead>
 				<tr>
@@ -59,7 +64,8 @@ if (session.getAttribute("admin") != null) {
 					<td><%=corsi[i].getFineCorso()%></td>
 					<td>
 						<form
-							action="/<%=application.getServletContextName()%>/removeCorso" method="post">
+							action="/<%=application.getServletContextName()%>/removeCorso"
+							method="post">
 							<input type="hidden" name="corso"
 								value="<%=corsi[i].getCodCorso()%>">
 							<button type="submit" class="btn btn-danger">

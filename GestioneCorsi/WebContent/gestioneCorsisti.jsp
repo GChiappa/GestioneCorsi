@@ -1,15 +1,19 @@
 
-<%@page import="java.util.Vector"%>
-<%@page import="it.betacom.businesscomponent.model.Corsista"%>
 <%
+if (session.getAttribute("tentativi") != null && (int) session.getAttribute("tentativi") >= 5) {
+	response.sendRedirect("troppitentativi.jsp");
+}
 if (session.getAttribute("admin") != null) {
 %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
+<%@page import="java.util.Vector"%>
+<%@page import="it.betacom.businesscomponent.model.Corsista"%>
 <%@page import="it.betacom.businesscomponent.model.Docente"%>
 <%@page import="it.betacom.businesscomponent.utility.ReportUtility"%>
 <%@page import="it.betacom.businesscomponent.facade.AdminFacade"%>
 <%@page import="it.betacom.businesscomponent.model.Corso"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>

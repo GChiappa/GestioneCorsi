@@ -1,5 +1,8 @@
 
 <%
+if (session.getAttribute("tentativi") != null && (int) session.getAttribute("tentativi") >= 5) {
+	response.sendRedirect("troppitentativi.jsp");
+}
 if (session.getAttribute("admin") != null) {
 %>
 <%@page import="java.util.Vector"%>
@@ -10,14 +13,12 @@ if (session.getAttribute("admin") != null) {
 <%@page import="it.betacom.businesscomponent.model.Corso"%>
 <%@page import="it.betacom.businesscomponent.facade.AdminFacade"%>
 <%@page import="it.betacom.businesscomponent.model.Corsista"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
 
 <%
 ReportUtility report = new ReportUtility();
 %>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html>
 <head>
