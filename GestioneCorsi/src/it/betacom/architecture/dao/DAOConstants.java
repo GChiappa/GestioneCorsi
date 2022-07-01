@@ -22,6 +22,7 @@ public interface DAOConstants {
 
 	String SELECT_CORSO_CORSISTA = "select * from CORSO_CORSISTA";
 	String DELETE_CORSO_CORSISTA = "delete from CORSO_CORSISTA where cod_corso_corsista = ?";
+	String DELETE_CORSO_CORSO_CORSISTA = "delete from CORSO_CORSISTA where cod_corso = ?";
 	String INIZIO_ULTIMO_CORSO = "select data_inizio from corso where cod_corso=(select max(cod_corso) from corso)";
 	String DURATA_MEDIA_CORSI = "SELECT AVG( data_inizio - data_fine) as Media FROM corso;";
 
@@ -31,6 +32,7 @@ public interface DAOConstants {
 	String SELECT_COMMENTO_CORSO = "select * from COMMENTO where cod_corso = ?";
 	String UPDATE_COMMENTO = "update COMMENTO set Cod_Corso = ?, Cod_Corsista = ?, Descrizione = ? WHERE id_commento=?";
 	String DELETE_COMMENTO = "delete from COMMENTO where id_commento = ?";
+	String DELETE_CORSO_COMMENTO = "delete from COMMENTO where cod_corso = ?";
 
 	String SELECT_COMMENTO_SEQ = "select COMMENTO_SEQ.nextval from dual";
 

@@ -65,6 +65,15 @@ public class CommentoDAO implements DAOConstants, GenericDAO<Commento> {
 		conn.commit();
 
 	}
+	
+	public void deleteCorso(long corso, Connection conn) throws SQLException {
+		PreparedStatement ps = conn.prepareStatement(DELETE_CORSO_COMMENTO);
+
+		ps.setLong(1, corso);
+		ps.execute();
+		conn.commit();
+
+	}
 
 	@Override
 	public Commento findById(long id, Connection conn) throws SQLException {

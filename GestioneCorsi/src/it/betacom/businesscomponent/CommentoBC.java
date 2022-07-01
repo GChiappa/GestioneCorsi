@@ -28,6 +28,10 @@ public class CommentoBC {
 	public void delete(long cod) throws SQLException {
 		CommentoDAO.getFactory().delete(cod, conn);
 	}
+	
+	public void deleteCorso(long cod) throws SQLException {
+		CommentoDAO.getFactory().deleteCorso(cod, conn);
+	}
 
 	public Commento[] getAll() throws SQLException {
 		return CommentoDAO.getFactory().getAll(conn);

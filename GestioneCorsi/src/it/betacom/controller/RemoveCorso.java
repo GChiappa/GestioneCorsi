@@ -21,9 +21,9 @@ public class RemoveCorso extends HttpServlet {
 		try {
 
 			String id = request.getParameter("corso");
-			if (id != null)
+			if (id != null) {
 				AdminFacade.getInstance().deleteCorso(Long.valueOf(id));
-			;
+			}
 			response.sendRedirect("gestioneCorsi.jsp");
 
 		} catch (SQLException | ClassNotFoundException exc) {

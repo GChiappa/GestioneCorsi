@@ -68,6 +68,18 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants 
 			throw new SQLException(sql);
 		}
 	}
+	
+	public void deleteCorso(long corso, Connection conn) throws SQLException {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(DELETE_CORSO_CORSO_CORSISTA);
+			ps.setLong(1, corso);
+			ps.execute();
+			conn.commit();
+		} catch(SQLException sql) {
+			throw new SQLException(sql);
+		}
+	}
 
 	@Override
 	public CorsoCorsista findById(long id, Connection conn) {

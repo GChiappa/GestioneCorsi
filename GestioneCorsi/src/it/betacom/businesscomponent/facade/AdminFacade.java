@@ -2,12 +2,8 @@ package it.betacom.businesscomponent.facade;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.DayOfWeek;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import it.betacom.businesscomponent.CommentoBC;
 import it.betacom.businesscomponent.CorsistaBC;
@@ -87,7 +83,11 @@ public class AdminFacade {
 
 	public void deleteCorso(long id) throws ClassNotFoundException, SQLException, IOException {
 		corsoBC = new CorsoBC();
+		cBC = new CommentoBC();
+		ccBC = new CorsoCorsistaBC();
 		corsoBC.delete(id);
+		cBC.deleteCorso(id);
+		ccBC.deleteCorso(id);
 	}
 
 	public Commento[] getCommenti() throws ClassNotFoundException, SQLException, IOException {

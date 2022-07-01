@@ -10,36 +10,24 @@ import it.betacom.businesscomponent.idgenerator.CorsoCorsistaIdGenerator;
 import it.betacom.businesscomponent.model.CorsoCorsista;
 
 public class CorsoCorsistaBC {
-private Connection conn;
- 
-	
-	public CorsoCorsistaBC() throws ClassNotFoundException, SQLException, IOException{
+	private Connection conn;
+
+	public CorsoCorsistaBC() throws ClassNotFoundException, SQLException, IOException {
 		conn = DBAccess.getConnection();
- 
 	}
-	
-	public void create (CorsoCorsista cc) throws ClassNotFoundException, IOException, SQLException {
-		try {
-			
-			 cc.setCodCorsoCorsista(CorsoCorsistaIdGenerator.getInstance().getNextId());
-			CorsoCorsistaDAO.getFactory().create(cc, conn);
-			
-		} catch (SQLException  exc) {
-			throw new SQLException(exc);
-			 
-		}
+
+	public void create(CorsoCorsista cc) throws ClassNotFoundException, IOException, SQLException {
+		cc.setCodCorsoCorsista(CorsoCorsistaIdGenerator.getInstance().getNextId());
+		CorsoCorsistaDAO.getFactory().create(cc, conn);
+
 	}
-	
-	public void delete (long id) throws SQLException {
-		try {
-			CorsoCorsistaDAO.getFactory().delete(id, conn);
-			
-		}
-		catch (SQLException  exc) {
-			throw new SQLException(exc);
-			 
-		}
+
+	public void delete(long id) throws SQLException {
+		CorsoCorsistaDAO.getFactory().delete(id, conn);
 	}
-	
-	
+
+	public void deleteCorso(long cod) throws SQLException {
+		CorsoCorsistaDAO.getFactory().deleteCorso(cod, conn);
+	}
+
 }
