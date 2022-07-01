@@ -37,6 +37,7 @@ public interface DAOConstants {
 	String SELECT_REPORT_ISCRIZIONI = "select * from REPORT_ISCRIZIONI";
 
 	String PASSWORD_AMMINISTRATORE = "select password from AMMINISTRATORE where cod_amministratore = ?";
+	String NOMINATIVO_AMMINISTRATORE = "select nome, cognome from AMMINISTRATORE where cod_amministratore = ?";
 
 	// ReportUtility
 	String SELECT_ID_CORSO_PIU_FREQUENTATO = "select cod_corso, count(*) as num from CORSO_CORSISTA group by cod_corso order by num desc";

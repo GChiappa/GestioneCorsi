@@ -10,14 +10,16 @@
 </head>
 
 <body>
+
 	<div class="row">
 		<img src="img/c.jpg" alt="Image" height="10" width="200%">
 	</div>
+	
 	<div class="container">
+	
 		<form role="form" action="/<%=application.getServletContextName()%>/controlloAdmin" method="post">
 			<div class="row" style="margin-top: 20px">
 				<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-
 
 					<h3 style="text-align: center">
 						Accedi a <strong>Management Alfacom</strong>
@@ -25,7 +27,7 @@
 					<hr class="colorgraph">
 					<div class="form-group">
 						<input type="text" name="admin" id="codice" class="form-control"
-							placeholder="Il tuo codice">
+							placeholder="Il tuo codice amministratore">
 					</div>
 					<div class="form-group">
 						<input type="password" name="password" id="password"

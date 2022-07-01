@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import it.betacom.businesscomponent.utility.loginUtility;
+import it.betacom.businesscomponent.utility.LoginUtility;
 import it.betacom.security.AlgoritmoMD5;
 
 class loginUtilityTest {
