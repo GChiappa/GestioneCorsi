@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import it.betacom.businesscomponent.facade.AdminFacade;
 import it.betacom.businesscomponent.model.Corsista;
+import it.betacom.businesscomponent.utility.ControlloInUtility;
 
 @WebServlet("/creaCorsista")
 public class CreaCorsista extends HttpServlet {
@@ -24,9 +25,17 @@ public class CreaCorsista extends HttpServlet {
 		String cognome = request.getParameter("cognome");
 		String precedenti = request.getParameter("precedentiFormativi");
 
-		System.out.println(nome + cognome + precedenti);
+		String msg, msg1 = "", msg2 = "", msg3 = "";
+		if (ControlloInUtility.checkNomeCorsista(nome) != null)
+			msg1 = "<p>" + ControlloInUtility.checkNomeCorsista(nome) + "</p>";
+		if (ControlloInUtility.checkCognomeCorsista(cognome) != null)
+			msg2 = "<p>" + ControlloInUtility.checkCognomeCorsista(cognome) + "</p>";
+		if (ControlloInUtility.checkPrecedentiFormativiCorsista(precedenti) != null)
+			msg3 = "<p>" + ControlloInUtility.checkPrecedentiFormativiCorsista(precedenti) + "</p>";
 
-		if (nome != null && cognome != null && precedenti != null) {
+		msg = msg1.concat(msg2).concat(msg3);
+
+		if (msg.equals("")) {
 			try {
 				Corsista c = new Corsista();
 				c.setCodCorsista(0);
@@ -42,7 +51,7 @@ public class CreaCorsista extends HttpServlet {
 			session.removeAttribute("creazione");
 			response.sendRedirect("gestioneCorsisti.jsp");
 		} else {
-			session.setAttribute("creazione", "valore nullo");
+			session.setAttribute("creazione", msg);
 			response.sendRedirect("paginaPrincipale.jsp");
 		}
 

@@ -43,12 +43,8 @@ public class ControlloAdmin extends HttpServlet {
 						if (session.getAttribute("tentativi") == null) {
 							tentativi = 1;
 							session.setAttribute("tentativi", tentativi);
-						}
-						else {
+						} else {
 							tentativi = (int) session.getAttribute("tentativi") + 1;
-							if (tentativi >= 5) {
-								response.sendRedirect("troppitentativi.jsp");
-							}
 							session.setAttribute("tentativi", tentativi);
 
 						}

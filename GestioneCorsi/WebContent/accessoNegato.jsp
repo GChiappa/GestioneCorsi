@@ -12,7 +12,7 @@ if (session.getAttribute("tentativi") != null && (int) session.getAttribute("ten
 <%@include file="CDN.html"%>
 <meta charset="ISO-8859-1">
 <title>Accesso negato</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/all.css">
 </head>
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>

@@ -27,7 +27,7 @@ if (username == null) {
 			%>
 			<ul class="nav navbar-nav navbar-right">
 
-				<li><a href="login.jsp"> <span
+				<li><a href="index.jsp"> <span
 						class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login
 				</a></li>
 			</ul>

@@ -1,6 +1,6 @@
 
 <%
-if (session.getAttribute("tentativi") != null && (int) session.getAttribute("tentativi") >= 5 ){
+if (session.getAttribute("tentativi") != null && (int) session.getAttribute("tentativi") >= 5) {
 	response.sendRedirect("troppitentativi.jsp");
 }
 if (session.getAttribute("admin") != null) {
@@ -30,7 +30,10 @@ if (session.getAttribute("admin") != null) {
 				<%
 				if (session.getAttribute("creazione") != null) {
 				%>
-				<div class="alert alert-danger" role="alert">Creazione Corsista non andata a buon fine</div>
+				<div class="alert alert-danger" role="alert">
+					<h3>Creazione Corsista non andata a buon fine</h3>
+					<%=session.getAttribute("creazione")%>
+				</div>
 				<%
 				session.removeAttribute("creazione");
 				}
@@ -76,21 +79,23 @@ if (session.getAttribute("admin") != null) {
 
 					<div class="form-group">
 						<label for="nome">Nome</label> <input type="text"
-							class="form-control" name="nome" id="nome" placeholder="Nome Corsista...">
+							class="form-control" name="nome" id="nome"
+							placeholder="Nome Corsista...">
 					</div>
 					<div class="form-group">
 						<label for="cogome">Cogmome</label> <input type="text"
-							class="form-control" name="cognome" id="cogome" placeholder="Cogome corsista...">
+							class="form-control" name="cognome" id="cogome"
+							placeholder="Cogome corsista...">
 					</div>
 					<div class="form-group">
 						<label for="precedentiFormativi">Precedenti formativi</label>
 						<div class="btn-group" data-toggle="buttons">
 							<label class="btn btn-default"> <input type="radio"
-								name="precedentiFormativi" autocomplete="off"
-								value="SI"> SI
-							</label> <label class="btn btn-default"> <input
-								type="radio" name="precedentiFormativi" 
-								autocomplete="off" value="NO"> NO
+								name="precedentiFormativi" autocomplete="off" value="SI">
+								SI
+							</label> <label class="btn btn-default"> <input type="radio"
+								name="precedentiFormativi" autocomplete="off" value="NO">
+								NO
 							</label>
 						</div>
 					</div>
