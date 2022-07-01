@@ -1,27 +1,22 @@
 package test.it.betacom.businesscomponent;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import it.betacom.architecture.dbaccess.DBAccess;
-import it.betacom.businesscomponent.CorsistaBC;
 import it.betacom.businesscomponent.CorsoCorsistaBC;
-import it.betacom.businesscomponent.model.Corsista;
-import it.betacom.businesscomponent.model.Corso;
 import it.betacom.businesscomponent.model.CorsoCorsista;
-@TestMethodOrder(OrderAnnotation.class)
 
+@TestMethodOrder(OrderAnnotation.class)
 class CorsoCorsistaBCTest {
 
 	static CorsoCorsistaBC ccBC;

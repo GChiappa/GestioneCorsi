@@ -1,13 +1,13 @@
 package test.it.betacom.businesscomponent.idgenerator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 import org.junit.jupiter.api.Test;
 
-import it.betacom.businesscomponent.idgenerator.CorsistaIdGenerator;
 import it.betacom.businesscomponent.idgenerator.CorsoCorsistaIdGenerator;
 
 class CorsoCorsistaIdGeneratorTest {
