@@ -21,13 +21,9 @@ public class ControlloAdmin extends HttpServlet {
 		String codAdmin = request.getParameter("admin");
 		String password = AlgoritmoMD5.convertiMD5(request.getParameter("password"));
 		HttpSession session = request.getSession();
-		
+
 		String adminpass = null;
-		
-		int tentativi = (Integer) session.getAttribute("tentativi");
-		if (tentativi >= 5)
-			response.sendRedirect("troppitentativi.jsp");
-			
+		int tentativi;
 		if (codAdmin != null && password != null) {
 			try {
 
@@ -43,23 +39,18 @@ public class ControlloAdmin extends HttpServlet {
 						response.sendRedirect("paginaPrincipale.jsp");
 
 					} else {
-						 
-						if(session.getAttribute("tentativi") == null) {
-							tentativi =1;
+
+						if (session.getAttribute("tentativi") == null) {
+							tentativi = 1;
 							session.setAttribute("tentativi", tentativi);
 						}
-							
 						else {
-							tentativi = (Integer) session.getAttribute("tentativi") + 1 ;
+							tentativi = (int) session.getAttribute("tentativi") + 1;
 							if (tentativi >= 5) {
 								response.sendRedirect("troppitentativi.jsp");
-							}else {
-								session.setAttribute("tentativi", tentativi);
 							}
-								
-							
-							
-							
+							session.setAttribute("tentativi", tentativi);
+
 						}
 						response.sendRedirect("accessoNegato.jsp");
 					}
