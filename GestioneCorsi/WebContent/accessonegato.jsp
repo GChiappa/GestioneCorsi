@@ -21,7 +21,7 @@
 		<div class="panel-body">
 			<p>Per accedere alla pagina: </p>
 			<p>Effettuare il login</p>
-			<p><a href="login.jsp">Login</a></p>
+			<p><a href="index.jsp">Login</a></p>
 			
 		</div>
 	</div>

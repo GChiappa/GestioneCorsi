@@ -1,4 +1,7 @@
 
+<%
+if (session.getAttribute("admin") != null) {
+%>
 <%@page import="java.util.Vector"%>
 <%@page import="it.betacom.businesscomponent.model.Docente"%>
 <%@page import="it.betacom.businesscomponent.CommentoBC"%>
@@ -7,12 +10,14 @@
 <%@page import="it.betacom.businesscomponent.model.Corso"%>
 <%@page import="it.betacom.businesscomponent.facade.AdminFacade"%>
 <%@page import="it.betacom.businesscomponent.model.Corsista"%>
+
 <%
-//if (session.getAttribute("admin") != null) {
 ReportUtility report = new ReportUtility();
 %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -332,7 +337,7 @@ ReportUtility report = new ReportUtility();
 </html>
 
 <%
-/*} else{
-response.sendRedirect("index.jsp");
-}*/
+} else {
+response.sendRedirect("accessonegato.jsp");
+}
 %>
