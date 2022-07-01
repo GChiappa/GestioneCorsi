@@ -1,4 +1,5 @@
 
+<%@page import="java.util.Vector"%>
 <%@page import="it.betacom.businesscomponent.model.Corsista"%>
 <%
 if (session.getAttribute("admin") != null) {
@@ -57,14 +58,85 @@ if (session.getAttribute("admin") != null) {
 					<td><%=corsisti[i].getCognome()%></td>
 					<td><%=corsisti[i].getPrecedentiFormativi()%></td>
 					<td>
-						<form
-							action="/<%=application.getServletContextName()%>/removeCorso">
-							<input type="hidden" name="corso"
-								value="<%=corsisti[i].getCodCorsista()%>">
-							<button type="submit" class="btn btn-default">
-								<span class="glyphicon glyphicon-book"></span>
-							</button>
-						</form>
+						<button type="button" class="btn btn-default" data-toggle="modal"
+							data-target="#modaleCorsiCorsista_<%=corsisti[i].getCodCorsista()%>">
+							<span class="glyphicon glyphicon-book"></span>
+						</button>
+					</td>
+					<td>
+
+						<div class="modal fade"
+							id="modaleCorsiCorsista_<%=corsisti[i].getCodCorsista()%>"
+							tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">
+											Corsi seguiti da&nbsp;<%=corsisti[i].getNome()%>&nbsp;<%=corsisti[i].getCognome()%></h4>
+									</div>
+									<div class="modal-body">
+
+										<%
+										ReportUtility ru = new ReportUtility();
+										Vector<Corso> corsi = ru.getCorsiCorsista(corsisti[i].getCodCorsista());
+										if (corsi.size() > 0) {
+										%>
+
+										<table class="table table-hover"
+											style="text-align: center; margin-top: 50px;">
+
+											<thead>
+												<tr>
+													<td>Codice</td>
+													<td>Nome</td>
+													<td>Docente</td>
+													<td>Aula</td>
+													<td>Inizio</td>
+													<td>Fine</td>
+												</tr>
+											</thead>
+
+											<tbody>
+												<%
+												for (Corso c : corsi) {
+												%>
+												<tr>
+													<td><%=c.getCodCorso()%></td>
+													<td><%=c.getNome()%></td>
+													<%
+													Docente doc = AdminFacade.getInstance().findDocByCod(c.getCodDocente());
+													%>
+													<td><%=doc.getNome()%> <%=doc.getCongnome()%></td>
+													<td><%=c.getAula()%></td>
+													<td><%=c.getInizioCorso()%></td>
+													<td><%=c.getFineCorso()%></td>
+												</tr>
+												<%
+												}
+												%>
+											</tbody>
+
+										</table>
+										<%
+										} else {
+										%>
+										<h2>Il corsista non ha mai seguito corsi.</h2>
+										<%
+										}
+										%>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal" style="width: 100%;">Fine</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</td>
 				</tr>
 				<%
