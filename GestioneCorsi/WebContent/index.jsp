@@ -11,15 +11,18 @@
 
 <body>
 
-	<div class="row">
-		<img src="img/c.jpg" alt="Image" height="10" width="200%">
+	<div class="row" style="margin-top: -5px;">
+		<img src="img/c.jpg" alt="Image" height="30px" width="100%">
 	</div>
-	
+
 	<div class="container">
-	
-		<form role="form" action="/<%=application.getServletContextName()%>/controlloAdmin" method="post">
+
+		<form role="form"
+			action="/<%=application.getServletContextName()%>/controlloAdmin"
+			method="post">
 			<div class="row" style="margin-top: 20px">
-				<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<div
+					class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 
 					<h3 style="text-align: center">
 						Accedi a <strong>Management Alfacom</strong>
@@ -55,18 +58,18 @@
 
 	</div>
 
-	<div class="jumbotron" style="margin-top: 60px; text-align: center; ">
-	
-			<h2>Perchè la sicurezza nella gestione dei corsi...</h2>
-			<p>
-				Per noi è tutto! affidati a questa fantastica piattaforma<br>e
-				noi ti aiuteremo a rendere i tuoi sogni realtà
-			</p>
-			<p>
-				<a class="btn btn-outline-dark btn-lg" href="login.jsp"
-					role="button">Accedi al tuo account</a>
-			</p>
-	
+	<div class="jumbotron" style="margin-top: 60px; text-align: center;">
+
+		<h2>Perchè la sicurezza nella gestione dei corsi...</h2>
+		<p>
+			Per noi è tutto! affidati a questa fantastica piattaforma<br>e
+			noi ti aiuteremo a rendere i tuoi sogni realtà
+		</p>
+		<p>
+			<a class="btn btn-outline-dark btn-lg" href="#" role="button">Accedi
+				al tuo account</a>
+		</p>
+
 	</div>
 
 </body>

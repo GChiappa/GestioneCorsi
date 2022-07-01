@@ -36,7 +36,7 @@ public class LoginUtility implements DAOConstants {
 		ResultSet rs = ps.executeQuery();
 
 		if (rs.next())
-			return rs.getString(1) + " " + rs.getString(1);
+			return rs.getString(1) + " " + rs.getString(2);
 		else
 			return null;
 

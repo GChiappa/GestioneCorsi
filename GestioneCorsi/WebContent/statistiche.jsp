@@ -332,7 +332,9 @@ ReportUtility report = new ReportUtility();
 		</div>
 
 	</div>
+	
 	<footer><%@include file="footer.html"%></footer>
+	
 </body>
 </html>
 
