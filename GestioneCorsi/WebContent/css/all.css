@@ -5,11 +5,11 @@ html {
 
 body {
 	background-color: #F9F9F9;
-	padding-bottom: 670px;
+	padding-bottom: 0px;
 }
 
 ::-webkit-scrollbar {
-	display: none;
+	display: none; 
 }
 
 .navbar-inverse {
@@ -17,17 +17,16 @@ body {
 }
 
 #riguardonoi {
-  position: relative;
-  bottom: -20px;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 650px;
-  background-color: #FFFFFF;
- 
+	position: relative;
+	bottom: -20px;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 650px;
+	background-color: #FFFFFF;
 }
 
 .footertext {
-  color: #000000;
+	color: #000000;
 }
 
 .sfondo {
@@ -64,11 +63,10 @@ footer section {
 
 p.copyright {
 	clear: both;
-	margin-left: 30px;		
+	margin-left: 30px;
 	margin-bottom: 30px;
 }
 
-
 .text-center {
-  text-align: center;
+	text-align: center;
 }
