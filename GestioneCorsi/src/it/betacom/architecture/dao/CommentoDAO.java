@@ -9,9 +9,10 @@ import java.sql.Statement;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
+import it.betacom.architecture.dao.adapter.CommentoDAOAdapter;
 import it.betacom.businesscomponent.model.Commento;
 
-public class CommentoDAO implements DAOConstants, GenericDAO<Commento> {
+public class CommentoDAO extends CommentoDAOAdapter implements DAOConstants {
 
 	private CachedRowSet rowSet;
 
@@ -46,7 +47,7 @@ public class CommentoDAO implements DAOConstants, GenericDAO<Commento> {
 	@Override
 	public void update(Commento entity, Connection conn) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(UPDATE_COMMENTO);
-		//TODO sistemare
+
 		ps.setLong(1, entity.getCodCorso());
 		ps.setLong(2, entity.getCodCorsista());
 		ps.setString(3, entity.getDescrizione());
@@ -65,7 +66,7 @@ public class CommentoDAO implements DAOConstants, GenericDAO<Commento> {
 		conn.commit();
 
 	}
-	
+
 	public void deleteCorso(long corso, Connection conn) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(DELETE_CORSO_COMMENTO);
 
@@ -73,12 +74,6 @@ public class CommentoDAO implements DAOConstants, GenericDAO<Commento> {
 		ps.execute();
 		conn.commit();
 
-	}
-
-	@Override
-	public Commento findById(long id, Connection conn) throws SQLException {
-		// NO
-		return null;
 	}
 
 	@Override

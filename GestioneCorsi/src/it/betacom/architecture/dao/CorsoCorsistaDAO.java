@@ -7,25 +7,23 @@ import java.sql.SQLException;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
+import it.betacom.architecture.dao.adapter.CorsoCorsistaDAOAdapter;
 import it.betacom.businesscomponent.model.CorsoCorsista;
 
-public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants {
-	
-	
+public class CorsoCorsistaDAO extends CorsoCorsistaDAOAdapter implements DAOConstants {
 
 	private CachedRowSet rowSet;
-	
+
 	public static CorsoCorsistaDAO getFactory() throws SQLException {
 		return new CorsoCorsistaDAO();
 	}
-	
+
 	private CorsoCorsistaDAO() throws SQLException {
-		 try {
-			 rowSet = RowSetProvider.newFactory().createCachedRowSet();
-		 }
-		 catch(SQLException sql) {
-			 throw new SQLException(sql);
-		 }
+		try {
+			rowSet = RowSetProvider.newFactory().createCachedRowSet();
+		} catch (SQLException sql) {
+			throw new SQLException(sql);
+		}
 	}
 
 	@Override
@@ -34,26 +32,19 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants 
 			rowSet.setCommand(SELECT_CORSO_CORSISTA);
 			rowSet.execute(conn);
 			rowSet.moveToInsertRow();
-			rowSet.updateLong(1,entity.getCodCorsoCorsista());
-			rowSet.updateLong(2,entity.getCodCorso());
-			rowSet.updateLong(3,entity.getCodCorsista());
-			
+			rowSet.updateLong(1, entity.getCodCorsoCorsista());
+			rowSet.updateLong(2, entity.getCodCorso());
+			rowSet.updateLong(3, entity.getCodCorsista());
+
 			rowSet.insertRow();
 			rowSet.moveToCurrentRow();
 			rowSet.acceptChanges();
-			
-		
-		} catch (SQLException e) {
-		 
-			throw new  SQLException(e);
-		}
-		
-	}
 
-	@Override
-	public void update(CorsoCorsista entity, Connection conn) {
-		// TODO Auto-generated method stub
-		
+		} catch (SQLException e) {
+
+			throw new SQLException(e);
+		}
+
 	}
 
 	@Override
@@ -64,11 +55,11 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants 
 			ps.setLong(1, id);
 			ps.execute();
 			conn.commit();
-		} catch(SQLException sql) {
+		} catch (SQLException sql) {
 			throw new SQLException(sql);
 		}
 	}
-	
+
 	public void deleteCorso(long corso, Connection conn) throws SQLException {
 		PreparedStatement ps;
 		try {
@@ -76,23 +67,9 @@ public class CorsoCorsistaDAO implements GenericDAO<CorsoCorsista>,DAOConstants 
 			ps.setLong(1, corso);
 			ps.execute();
 			conn.commit();
-		} catch(SQLException sql) {
+		} catch (SQLException sql) {
 			throw new SQLException(sql);
 		}
 	}
-
-	@Override
-	public CorsoCorsista findById(long id, Connection conn) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public CorsoCorsista[] getAll(Connection conn) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
 
 }

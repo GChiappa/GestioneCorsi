@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import it.betacom.architecture.dao.CommentoDAO;
 import it.betacom.architecture.dbaccess.DBAccess;
+import it.betacom.businesscomponent.idgenerator.CommentoIdGenerator;
 import it.betacom.businesscomponent.model.Commento;
 
 public class CommentoBC {
@@ -18,17 +19,16 @@ public class CommentoBC {
 
 	public void createOrUpdate(Commento commento) throws SQLException, ClassNotFoundException, IOException {
 		if (commento.getIdCommento() == 0) {
-			// TODO CommentoIdGenerator
-			// CommentoDAO.getFactory().create(commento, conn);
-		}
-		else
+			commento.setCodCorsista(CommentoIdGenerator.getInstance().getNextId());
+			CommentoDAO.getFactory().create(commento, conn);
+		} else
 			CommentoDAO.getFactory().update(commento, conn);
 	}
 
 	public void delete(long cod) throws SQLException {
 		CommentoDAO.getFactory().delete(cod, conn);
 	}
-	
+
 	public void deleteCorso(long cod) throws SQLException {
 		CommentoDAO.getFactory().deleteCorso(cod, conn);
 	}

@@ -60,7 +60,6 @@ public class CommentoBCTest {
 	@Test
 	@Order(3)
 	void testUpdate() {
-		//TODO sistemare
 		try {
 			commento.setDescrizione("Cambiata!");
 			cBC.createOrUpdate(commento);

@@ -81,14 +81,14 @@ public class ReportUtility implements DAOConstants {
 	}
 
 	public Vector<Corso> getCorsiCorsista(long cod) throws SQLException {
-		
+
 		Vector<Corso> corsi = new Vector<Corso>();
 		PreparedStatement ps = conn.prepareStatement(SELECT_CORSI_CORSISTA);
 		ps.setLong(1, cod);
-		
+
 		ResultSet rs = ps.executeQuery();
 
-		while(rs.next()) {
+		while (rs.next()) {
 			Corso c = new Corso();
 			c.setCodCorso(rs.getLong(1));
 			c.setCodDocente(rs.getString(2));
@@ -100,11 +100,6 @@ public class ReportUtility implements DAOConstants {
 		}
 
 		return corsi;
-	}
-
-	public double getDurataMediaCorsi() {
-		// TODO avg durata corsi (togliere i giorni feriali)
-		return 0;
 	}
 
 	public double getPercentualeCorso(long cod) throws SQLException {
@@ -129,10 +124,10 @@ public class ReportUtility implements DAOConstants {
 		Vector<Corso> corsi = new Vector<Corso>();
 		PreparedStatement ps = conn.prepareStatement(SELECT_CORSI_DOCENTE);
 		ps.setString(1, cod);
-		
+
 		ResultSet rs = ps.executeQuery();
 
-		while(rs.next()) {
+		while (rs.next()) {
 			Corso c = new Corso();
 			c.setCodCorso(rs.getLong(1));
 			c.setCodDocente(rs.getString(2));
