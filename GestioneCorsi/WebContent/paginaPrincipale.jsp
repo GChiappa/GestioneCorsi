@@ -23,6 +23,6 @@ if (session.getAttribute("admin") != null) {
 </html>
 <%
 } else {
-response.sendRedirect("accessonegato.jsp");
+response.sendRedirect("accessoNegato.jsp");
 }
 %>

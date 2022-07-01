@@ -338,6 +338,6 @@ ReportUtility report = new ReportUtility();
 
 <%
 } else {
-response.sendRedirect("accessonegato.jsp");
+response.sendRedirect("accessoNegato.jsp");
 }
 %>

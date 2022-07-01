@@ -11,53 +11,48 @@ import javax.servlet.http.HttpSession;
 import it.betacom.businesscomponent.utility.loginUtility;
 import it.betacom.security.AlgoritmoMD5;
 
- 
-@WebServlet("/ControlloAdmin")
+@WebServlet("/controlloAdmin")
 public class ControlloAdmin extends HttpServlet {
- 
-
 	private static final long serialVersionUID = -4756704292690882364L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String codAdmin= request.getParameter("admin");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		String password= AlgoritmoMD5.convertiMD5(request.getParameter("password") );
-		
+		String codAdmin = request.getParameter("admin");
+		String password = AlgoritmoMD5.convertiMD5(request.getParameter("password"));
 		HttpSession session = request.getSession();
-	 
+
 		String adminpass = null;
-		if(codAdmin != null && password!=null) {
+		if (codAdmin != null && password != null) {
 			try {
-				
+
 				loginUtility lu = new loginUtility();
-				adminpass= lu.getadminpass(codAdmin);
-				 
-				 
-				   if (adminpass!= null)   {
-					 if(adminpass.equals(password)) {
-						 session.setAttribute("admin", codAdmin);
-						 session.setAttribute("nome", lu.getadminname(codAdmin));
-						
-						 
-						 response.sendRedirect("paginaprincipale.jsp");
-						 
-						 
-						 
-					 }else {
-						 response.sendRedirect("accessonegato.jsp");
-					 }				 
-				  
-			} else {
-				response.sendRedirect("accessonegato.jsp");
+				adminpass = lu.getadminpass(codAdmin);
+
+				if (adminpass != null) {
+					if (adminpass.equals(password)) {
+
+						session.setAttribute("admin", codAdmin);
+						session.setAttribute("nome", lu.getadminname(codAdmin));
+
+						response.sendRedirect("paginaPrincipale.jsp");
+
+					} else {
+						response.sendRedirect("accessoNegato.jsp");
+					}
+
+				} else {
+					response.sendRedirect("accessoNegato.jsp");
+				}
+
+			} catch (Exception exc) {
+				exc.printStackTrace();
+				throw new ServletException(exc.getMessage());
+
 			}
-				 
-		}catch(Exception exc) {
-			exc.printStackTrace();
-			throw new ServletException(exc.getMessage());
-			
+		} else {
+			response.sendRedirect("index.jsp");
 		}
-		
-	}
 	}
 
 }
