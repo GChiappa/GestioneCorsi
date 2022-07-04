@@ -37,7 +37,7 @@ public class ControlloInUtility {
 	}
 
 	public static String checkPrecedentiFormativiCorsista(String in) {
-		if (in == null)
+		if (StringUtils.isBlank(in))
 			return "Il campo dei precedenti formativi del corsista non deve essere nullo";
 		Pattern pattern = Pattern.compile("^(SI|NO){1,1}$");
 		Matcher matcher = pattern.matcher(in);
@@ -45,7 +45,7 @@ public class ControlloInUtility {
 		if (matcher.find()) {
 			return null;
 		} else {
-			return "Il campo dei precedenti formativi del corsista deve contenere da 2 a 30 lettere (a-z, A-Z)";
+			return "Il campo dei precedenti formativi del corsista deve essere SI o NO";
 		}
 
 	}
