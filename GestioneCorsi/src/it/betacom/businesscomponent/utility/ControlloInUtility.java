@@ -3,12 +3,13 @@ package it.betacom.businesscomponent.utility;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.platform.commons.util.StringUtils;
+
 public class ControlloInUtility {
 
 	public static String checkNomeCorsista(String in) {
-		if (in == null)
-			return "Il campo del nome del corsista non deve essere nullo";
-		if (in.equals(""))
+
+		if (StringUtils.isBlank(in))
 			return "Il campo del nome del corsista non deve essere nullo";
 		Pattern pattern = Pattern.compile("^[a-zA-Z]{2,30}$");
 		Matcher matcher = pattern.matcher(in);
@@ -22,9 +23,7 @@ public class ControlloInUtility {
 	}
 
 	public static String checkCognomeCorsista(String in) {
-		if (in == null)
-			return "Il campo del cognome del corsista non deve essere nullo";
-		if (in.equals(""))
+		if (StringUtils.isBlank(in))
 			return "Il campo del cognome del corsista non deve essere nullo";
 		Pattern pattern = Pattern.compile("^[a-zA-Z]{2,30}$");
 		Matcher matcher = pattern.matcher(in);
