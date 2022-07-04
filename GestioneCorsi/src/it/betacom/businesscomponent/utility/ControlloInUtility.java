@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.junit.platform.commons.util.StringUtils;
-
 import it.betacom.businesscomponent.facade.AdminFacade;
 import it.betacom.businesscomponent.model.Docente;
 
@@ -34,7 +32,9 @@ public class ControlloInUtility {
 
 	public static String checkCommento(String in) {
 
-		if (StringUtils.isBlank(in))
+		if (in == null)
+			return "Il campo del commento non deve essere nullo";
+		if (in.equals(""))
 			return "Il campo del commento non deve essere nullo";
 
 		Pattern pattern = Pattern.compile("^[a-zA-Z0-9 .,?!()]{0,200}$");
@@ -48,8 +48,12 @@ public class ControlloInUtility {
 	}
 
 	public static String checkPrecedentiFormativiCorsista(String in) {
-		if (StringUtils.isBlank(in))
+
+		if (in == null)
 			return "Il campo dei precedenti formativi del corsista non deve essere nullo";
+		if (in.equals(""))
+			return "Il campo dei precedenti formativi del corsista non deve essere nullo";
+
 		Pattern pattern = Pattern.compile("^(SI|NO){1,1}$");
 		Matcher matcher = pattern.matcher(in);
 
@@ -63,7 +67,9 @@ public class ControlloInUtility {
 
 	public static String checkAulaCorso(String in) {
 
-		if (StringUtils.isBlank(in))
+		if (in == null)
+			return "Il campo aula di corso non deve essere nullo";
+		if (in.equals(""))
 			return "Il campo aula di corso non deve essere nullo";
 
 		Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{2,30}$");
@@ -82,8 +88,11 @@ public class ControlloInUtility {
 
 	private static String checkNome(String in, String campo, String tabella) {
 
-		if (StringUtils.isBlank(in))
+		if (in == null)
 			return "Il campo " + campo + " di " + tabella + " non deve essere nullo";
+		if (in.equals(""))
+			return "Il campo " + campo + " di " + tabella + " non deve essere nullo";
+
 		Pattern pattern = Pattern.compile("^[a-zA-Z]{2,30}$");
 		Matcher matcher = pattern.matcher(in);
 
@@ -95,7 +104,10 @@ public class ControlloInUtility {
 	}
 
 	private static String checkData(String in, String campo, String tabella) {
-		if (StringUtils.isBlank(in))
+
+		if (in == null)
+			return "Il campo " + campo + " di " + tabella + " non deve essere nullo";
+		if (in.equals(""))
 			return "Il campo " + campo + " di " + tabella + " non deve essere nullo";
 
 		Pattern pattern = Pattern.compile(

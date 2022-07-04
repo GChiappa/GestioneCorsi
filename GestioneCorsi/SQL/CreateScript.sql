@@ -22,7 +22,7 @@ create table corso(
 	nome varchar2(30),
 	data_inizio date,
 	data_fine date,
-	aula varchar2(10),
+	aula varchar2(30),
 	constraint p_codcorso primary key(cod_corso),
 	constraint f_docentecorso foreign key(cod_docente) references docente(cod_docente)
 );
@@ -45,7 +45,7 @@ create table commento(
 	id_commento int,
 	cod_corso int,
 	cod_corsista int,
-	descrizione varchar2(500),
+	descrizione varchar2(200),
 	constraint p_idcommento primary key(id_commento),
 	constraint f_codcorsoc foreign key(cod_corso) references corso(cod_corso),
 	constraint f_codcorsistac foreign key(cod_corsista) references corsista(cod_corsista)
@@ -62,10 +62,8 @@ create table amministratore(
 	constraint p_codamministratore primary key(cod_amministratore)
 );
 
-create view report_iscrizioni as
-	select CORSO.COD_CORSO, CORSO.NOME as nome_corso, CORSO.COD_DOCENTE, CORSO.DATA_INIZIO, CORSO.DATA_FINE, CORSO.AULA,
-		CORSISTA.COD_CORSISTA, CORSISTA.NOME as nome_corsista, CORSISTA.COGNOME, CORSISTA.PRECEDENTI_FORMATIVI
-	from CORSO, CORSO_CORSISTA, CORSISTA
-	where CORSO.COD_CORSO = CORSO_CORSISTA.COD_CORSO
-		and CORSISTA.COD_CORSISTA = CORSO_CORSISTA.COD_CORSISTA
-	;
+create table sessioni(
+	cod_amministratore varchar2(10),
+	creation_time int,
+	constraint f_codadmin foreign key(cod_amministratore) references amministratore(cod_amministratore)
+);

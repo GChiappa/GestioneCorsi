@@ -10,7 +10,8 @@ class AlgoritmoMD5Test {
 
 	@Test
 	void test() {
-		System.out.println("insert into amministratore values ('CodAdm176','Aldo','Baglio','" + AlgoritmoMD5.convertiMD5("Pass01") + "');");
+		System.out.println("insert into amministratore values ('admincorsi','admin','corsi','"
+				+ AlgoritmoMD5.convertiMD5("pass") + "');");
 		assertNotEquals(AlgoritmoMD5.convertiMD5("Pass01"), "Pass01");
 	}
 

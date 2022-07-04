@@ -20,4 +20,4 @@ drop sequence commento_seq;
 
 drop table amministratore cascade constraints;
 
-drop view report_iscrizioni;
+drop table sessioni cascade constraints;

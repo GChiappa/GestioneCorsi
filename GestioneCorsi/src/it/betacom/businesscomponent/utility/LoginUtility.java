@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
+
 import it.betacom.architecture.dao.DAOConstants;
 import it.betacom.architecture.dbaccess.DBAccess;
 
@@ -40,5 +44,22 @@ public class LoginUtility implements DAOConstants {
 		else
 			return null;
 
+	}
+
+	public void saveSession(HttpSession session) throws SQLException {
+		CachedRowSet rowSet = RowSetProvider.newFactory().createCachedRowSet();
+
+		rowSet.setCommand(SELECT_SESSIONI);
+		rowSet.execute(conn);
+
+		rowSet.moveToInsertRow();
+
+		rowSet.updateString(1, (String) session.getAttribute("admin"));
+		rowSet.updateLong(2, session.getCreationTime());
+
+		rowSet.insertRow();
+
+		rowSet.moveToCurrentRow();
+		rowSet.acceptChanges();
 	}
 }

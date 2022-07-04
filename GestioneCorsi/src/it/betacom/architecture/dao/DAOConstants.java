@@ -36,10 +36,10 @@ public interface DAOConstants {
 
 	String SELECT_COMMENTO_SEQ = "select COMMENTO_SEQ.nextval from dual";
 
-	String SELECT_REPORT_ISCRIZIONI = "select * from REPORT_ISCRIZIONI";
-
+	// LoginUtility
 	String PASSWORD_AMMINISTRATORE = "select password from AMMINISTRATORE where cod_amministratore = ?";
 	String NOMINATIVO_AMMINISTRATORE = "select nome, cognome from AMMINISTRATORE where cod_amministratore = ?";
+	String SELECT_SESSIONI = "select * from SESSIONI";
 
 	// ReportUtility
 	String SELECT_ID_CORSO_PIU_FREQUENTATO = "select cod_corso, count(*) as num from CORSO_CORSISTA group by cod_corso order by num desc";
@@ -51,6 +51,6 @@ public interface DAOConstants {
 	String COUNT_COMMENTI_CORSO = "select count(*) from commento where cod_corso = ?";
 
 	String SELECT_CORSI_DOCENTE = "select * from CORSO where cod_docente = ?";
-	
+
 	String SELECT_CORSI_CORSISTA = "select * from CORSO where cod_corso in (select cod_corso from CORSO_CORSISTA where cod_corsista = ?)";
 }

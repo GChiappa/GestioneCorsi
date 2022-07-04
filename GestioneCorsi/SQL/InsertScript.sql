@@ -25,4 +25,5 @@ insert into commento values(commento_seq.nextval,1,2,'Corso di HTML Migliorabile
 insert into commento values(commento_seq.nextval,2,3,'Corso di  JAVA OK LB');
 
 insert into amministratore values ('CodAdm176','Aldo','Baglio','aeq8tS(r2zC&95gS/ui2R*lkA4£d5q8tS(r2zC&95gS/ui2R*lkA4£46q8tS(r2zC&95gS/ui2R*lkA4£a5q8tS(r2zC&95gS/ui2R*lkA4£8bq8tS(r2zC&95gS/ui2R*lkA4£4dq8tS(r2zC&95gS/ui2R*lkA4£dcq8tS(r2zC&95gS/ui2R*lkA4£28q8tS(r2zC&95gS/ui2R*lkA4£fbq8tS(r2zC&95gS/ui2R*lkA4£ffq8tS(r2zC&95gS/ui2R*lkA4£34q8tS(r2zC&95gS/ui2R*lkA4£a7q8tS(r2zC&95gS/ui2R*lkA4£98q8tS(r2zC&95gS/ui2R*lkA4£d3q8tS(r2zC&95gS/ui2R*lkA4£c4q8tS(r2zC&95gS/ui2R*lkA4£29q8tS(r2zC&95gS/ui2R*lkA4£');
+insert into amministratore values ('admincorsi','admin','corsi','1aq8tS(r2zC&95gS/ui2R*lkA4£1dq8tS(r2zC&95gS/ui2R*lkA4£c9q8tS(r2zC&95gS/ui2R*lkA4£1cq8tS(r2zC&95gS/ui2R*lkA4£90q8tS(r2zC&95gS/ui2R*lkA4£73q8tS(r2zC&95gS/ui2R*lkA4£25q8tS(r2zC&95gS/ui2R*lkA4£c6q8tS(r2zC&95gS/ui2R*lkA4£92q8tS(r2zC&95gS/ui2R*lkA4£71q8tS(r2zC&95gS/ui2R*lkA4£ddq8tS(r2zC&95gS/ui2R*lkA4£f0q8tS(r2zC&95gS/ui2R*lkA4£c9q8tS(r2zC&95gS/ui2R*lkA4£44q8tS(r2zC&95gS/ui2R*lkA4£bcq8tS(r2zC&95gS/ui2R*lkA4£72q8tS(r2zC&95gS/ui2R*lkA4£');
 commit
